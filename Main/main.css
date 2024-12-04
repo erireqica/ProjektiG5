@@ -6,23 +6,22 @@ html, body {
 #main{
     width: 100%;
     height: 100%;
-    background-color: lightblue;
 }
 
 #topbar{
     width: 100%;
     height: 15%;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
 }
 
 #kryesor{
     width: 100%;
-    height: 88%;
+    height: 100%;
     background-color: black;
 }
 
 #bgPic{
-    width: 90%;
+    width: 100%;
     height: 100%;
     opacity: 30%;
 }
@@ -33,4 +32,18 @@ html, body {
     width: 8%;
     height: 130%;
     opacity: 100%;
+}
+
+#top {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin-top: -5%;
+    padding: 0;
+    color: white;
+    font-size: 110%;
+}
+
+a{
+    color: white;
 }
