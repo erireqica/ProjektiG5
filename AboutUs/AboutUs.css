@@ -18,7 +18,7 @@ h1{
 }
 .p1{
      font-size: 25px;
-     color: orange;
+     color: black;
      margin-top: 10px;
      margin-bottom: 10px;
      padding: 5px;
@@ -28,7 +28,6 @@ h1{
 #d1{
     height: 15%;
     width: 100%;
-    border: 3px solid purple;
     display: flex;  
     float: left;
     align-items: center;
@@ -66,14 +65,9 @@ h1{
 
 
 
-#img1{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
 
 header {
-    background-color: pink;
+    background-color: grey;
     padding: 3%;
     text-align: center;
 }
@@ -103,7 +97,7 @@ nav ul li a {
     text-align: center;
     color: white;
     font-size: 200%;
-    background-color:black;
+    background-color:grey;
     
 }
 
@@ -114,7 +108,7 @@ nav ul li a {
     float: left;
     align-items: center;
     word-spacing: 20%;
-    background-color: black;
+    background-color: grey;
     
    
 }
@@ -124,15 +118,19 @@ nav ul li a {
     width: 50%;
     align-items: center;
     word-spacing: 20%;
-    background-color:brown;
-    color: orange;
+    background-color:grey;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+
 }
 #d42{
     float: right;
     height: 100%;
     width: 50%;
     word-spacing: 20%;
-    background-color: blue;
+    background-color: burlywood;
+    border-left: solid 5px burlywood;
+
 }
 #img2{
     margin-top: 5px;
