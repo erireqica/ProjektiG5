@@ -1,3 +1,7 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -106,4 +110,12 @@ input{
 
 #emaili{
     margin-top: 30%;
+}
+
+#submit1{
+    border-radius: 20px;
+}
+
+#submit2{
+    border-radius: 20px;
 }
