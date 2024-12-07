@@ -50,7 +50,7 @@ html, body {
 #SignUp{
     width: 53%;
     height: 75%;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     box-shadow: 0px 0px 30px 1vh white;
 
 }
