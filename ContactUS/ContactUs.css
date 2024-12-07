@@ -1,5 +1,5 @@
 #Main{
-    border: 5px solid burlywood;
+    border: 5px solid black;
        
     overflow:auto;
     width: 100%;
@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-around;
     list-style: none;
-    margin-top: -2%;
+    margin-top: 0%;
     padding: 0;
     color: white;
     font-size: 120%;
@@ -156,7 +156,7 @@ nav ul li a {
     background-color: grey;
     font-family: 'Times New Roman', Times, serif;
     color: black;
-    border-top: solid 5px black;
+   
     
 }
 #d42{
