@@ -75,7 +75,7 @@ li{
 }
 
 #logo{
-    margin-left: 45%;
+    margin-left: 44%;
     margin-top: -1%;
     width: 8%;
     height: 130%;
@@ -87,7 +87,8 @@ li{
     display: flex;
     justify-content: space-around;
     list-style: none;
-    margin-top: -6.6%;
+    margin-top: -6.45%;
+    margin-right: 1.2%;
     padding: 0;
     color: white;
     font-size: 120%;
