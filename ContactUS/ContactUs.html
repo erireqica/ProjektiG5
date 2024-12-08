@@ -4,56 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="ContactUs.css">
+    <link rel="stylesheet" href="Contact.css">
+    <script src="Contact.js"></script>
 </head>
 <body>
-        <div id="Main">
-            <div id="topbar">
-                <img id="logo" src="/ProjektiImages/logo.png" alt="logo">
-                <ul id="top">
-                    <li><a href="/Main/main.html"> Home </a></li>
-                    <li><a href="/Products/products.html">Products</a>  </li>
-                    <li><a href="/ContactUS/ContactUs.html"> Contact Us  </a></li>
-                    <li><a href="/LogIn/LogIn.html"> Log In </a></li>
-                    <li><a href="/Contact/Contact.html">Contact</a></li>
-                </ul>
-                
-            </div>
-
-
-            <div id="d2">
-                <div id="d21">
-                    <h1 class="h1" style="color: white;">Making Your Look </h1>
-                    <h1 class="h1" style="color:orange"><i>Attractive & Manly</i></h1>
-                </div>
-                <div id="d22">
-                    <img id="img1" src="/ProjektiImages/Haircut3.jpg" alt="">
-                </div>
-            </div>
-
-            <div id="d3"><p>𝓦𝓱𝓮𝓻𝓮 𝓜𝓮𝓷 𝓖𝓮𝓽 𝓡𝓮𝓪𝓭𝔂</p></div>
-
-            <div id="d4">
-                <div id="d41">
-                
-                    <i>
-                        <p class="p1">Founded in 2005, ...... is the leader in quality men's grooming with the mission to help man Relax. Look Greate and Feel Confident.</p>
-                        <p class="p1">Our friendly, professional team delivers the best haircuts, shaves and spa services in town while providing outstanding client experience to every client on every visit.</p>
-                        <p class="p1">We invite you to visit ..... , and enjoy the ultimate relaxed grooming wxperience for men!</p>
-                        
-                    </i>
-                </div> 
-
-                    <div id="d42">
-                        <img id="img2" src="/ProjektiImages/HairSaloon.jpg" alt="">
-                    </div>
-
-            
-                   
-                </div>
-            </div>
-
-            
+    <div id="main">
+        <div id="topbar">
+            <img id="logo" src="/ProjektiImages/logo.png" alt="logo">
+            <ul id="top">
+                <li><a href="/Main/main.html"> Home </a></li>
+                <li><a href="/Products/products.html">Products</a></li>
+                <li><a href="/ContactUS/ContactUs.html"> Contact Us</a></li>
+                <li><a href="/LogIn/LogIn.html"> Log In </a></li>
+                <li><a href="/Contact/Contact.html">Contact</a></li>
+            </ul>
         </div>
+            
+            <div class="container">
+                <h1>Contact Us</h1>
+                <form id="contactForm">
+            
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                  </div>
+            
+                  <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                  </div>
+            
+                  <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                  </div>
+            
+                  <button type="submit">Submit</button>
+                  <p id="responseMessage" class="hidden"></p>
+            
+                </form>
+             </div>
+
+              <script src="script.js"></script>
+        
+    </div>    
 </body>
 </html>
