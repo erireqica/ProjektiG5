@@ -28,56 +28,6 @@ html, body {
     background-position: center;
 }
 
-#Block1{
-    width: 45%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-}
-
-#Block2{
-    width: 45%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-}
-
-#LogIn{
-    width: 53%;
-    height: 55%;
-    background-color: black;
-    box-shadow: 0px 0px 30px 1vh white;
-    border-radius: 5px;
-}
-
-#SignUp{
-    width: 53%;
-    height: 75%;
-    background-color: rgb(0, 0, 0);
-    box-shadow: 0px 0px 30px 1vh white;
-    border-radius: 5px;
-}
-
-li{
-    margin-top: 20px;
-}
-
-.bar{
-    margin-left: 150px;
-}
-
-#tekst1{
-    color: white;
-    text-align:center;
-}
-
-#tekst2{
-    color: white;
-    text-align:center;
-}
-
 #logo{
     margin-left: 0%;
     margin-top: -1%;
@@ -105,22 +55,6 @@ a{
 }
 
 li{
-    list-style: none;
-}
-
-input{
-    width: 280px;
-    height: 40px;
-}
-
-#emaili{
-    margin-top: 30%;
-}
-
-#submit1{
-    border-radius: 20px;
-}
-
-#submit2{
-    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 150px;
 }
