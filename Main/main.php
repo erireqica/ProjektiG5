@@ -18,9 +18,10 @@ session_start();
             <ul id="top">
                 <li><a href="main.php"> Home </a></li>
                 <li><a href="/ProjektiG5A/ProjektiG5/Products/products.html"> Products </a></li>
-                <li><a href="/ProjektiG5A/ProjektiG5/News/news.html"> News </a></li>
+                <li><a href="/ProjektiG5A/ProjektiG5/News/news.php"> News </a></li>
                 <li><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
                 <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
+                    <li><a href="/ProjektiG5A/ProjektiG5/Dashboard/dashboard.php">Dashboard</a></li>
                     <li><a href="/ProjektiG5A/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
                 <?php else: ?>
                     <li><a href="/ProjektiG5A/ProjektiG5/LogIn/LogIn.html">Log In</a></li>
