@@ -29,9 +29,9 @@ if (isset($_POST['login'])) {
             $_SESSION['role'] = $user['role'];
 
             if ($user['role'] === 'admin') {
-                header("Location: dashboard.php");
+                header("Location: /ProjektiG5A/ProjektiG5/Dashboard/dashboard.php");
             } else {
-                header("Location: /ProjektiG5A/ProjektiG5/Main/main.html");
+                header("Location: /ProjektiG5A/ProjektiG5/Main/main.php");
             }
             exit;
         } else {
