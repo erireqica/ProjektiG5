@@ -1,6 +1,5 @@
 <html>
     <head>
-        <title>JavaScript Form Validation using a sample registration form</title>
         <link rel='stylesheet' href='LogIn.css' type='text/css' />
         <script src="LogIn.js"></script> 
     </head> 
@@ -9,12 +8,12 @@
 
         <div id="main">
             <div id="topbar">
-                <img id="logo" src="/ProjektiImages/logo.png" alt="logo">
+                <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
                 <ul id="top">
-                    <li class="bar"><a href="../../Main/main.html"> Home </a></li>
-                    <li class="bar"><a href="../../Products/Products.html"> Products </a></li>
-                    <li class="bar"><a href="../../News/News.html"> News </a></li>
-                    <li class="bar"><a href="../../ContactUS/ContactUs.html"> Contact Us </a></li>
+                    <li class="bar"><a href="/ProjektiG5A/ProjektiG5/Main/main.html"> Home </a></li>
+                    <li class="bar"><a href="/ProjektiG5A/ProjektiG5/Products/Products.html"> Products </a></li>
+                    <li class="bar"><a href="/ProjektiG5A/ProjektiG5/News/News.html"> News </a></li>
+                    <li class="bar"><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
                     <li class="bar"><a href="LogIn.html"> Log In </a></li>
                 </ul>
                 
@@ -25,10 +24,10 @@
                     <div id="LogIn">
                         <form action="login.php" method="POST"> 
                             <ul> 
-                                <label id="tekst1" style="color: white;"> <h1>Log In⠀⠀</h1></label>
-                                <li><input id="emaili1" type="email" placeholder="Email" size="20"/></li>
-                                <li><input id="pass1" type="password" placeholder="Password"size="20"/></li>
-                                <li><input id="submit1" type="submit" value="SUBMIT"/></li>
+                                <label id="tekst1" style="color: white;"> <h1 class="h1">Log In</h1></label>
+                                <li><input id="emaili1" name="email" type="email" placeholder="Email" size="20"/></li>
+                                <li><input id="pass1" name="password" type="password" placeholder="Password"size="20"/></li>
+                                <li><input id="submit1" name="login" type="submit" value="SUBMIT"/></li>
                             </ul> 
                         </form> 
                 </div>
@@ -38,12 +37,12 @@
                     <div id="SignUp">
                         <form action="register.php" method="POST"> 
                             <ul> 
-                                <label id="tekst2" style="color: white;"><h1>Sign Up⠀⠀</h1></label>
-                                <li><input id="emri1" type="text" placeholder="Emri" size="20"/></li> 
-                                <li><input id="mbiemri1" type="text" placeholder="Mbiemri" size="20"/></li>
-                                <li><input id="emaili2" type="email" placeholder="Email" size="20"/></li>
-                                <li><input id="pass2" type="password" placeholder="Password" size="20"/></li>
-                                <li><input id="submit2" type="submit" value="SUBMIT"/></li>
+                                <label id="tekst2" style="color: white;"><h1 class="h1">Sign Up</h1></label>
+                                <li><input id="emri1" name="name" type="text" placeholder="Emri" size="20"/></li> 
+                                <li><input id="mbiemri1" name="surname" type="text" placeholder="Mbiemri" size="20"/></li>
+                                <li><input id="emaili2" name="email" type="email" placeholder="Email" size="20"/></li>
+                                <li><input id="pass2" name="password" type="password" placeholder="Password" size="20"/></li>
+                                <li><input id="submit2" name="register" type="submit" value="SUBMIT"/></li>
                             </ul> 
                         </form> 
                     </div>

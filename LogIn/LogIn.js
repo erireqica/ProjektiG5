@@ -4,33 +4,33 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function validimiLogIn() {
-    const Submit1 = document.getElementById('submit1'); 
+    const Submit1 = document.getElementById('submit1');
 
     const validate = (ngjarja) => {
-        ngjarja.preventDefault(); 
-
         const emaili1 = document.getElementById('emaili1');
         const fjalkalimi1 = document.getElementById('pass1');
 
         if (emaili1.value.trim() === "") {
             alert("Ju lutem shtoni email-in.");
             emaili1.focus();
+            ngjarja.preventDefault();
             return false;
         }
 
         if (!emailValid(emaili1.value)) {
             alert("Ju lutem shtoni një email valid.");
             emaili1.focus();
+            ngjarja.preventDefault();
             return false;
         }
 
         if (fjalkalimi1.value.trim() === "") {
             alert("Ju lutem shtoni fjalëkalimin.");
             fjalkalimi1.focus();
+            ngjarja.preventDefault();
             return false;
         }
 
-        alert("Log In u realizua me sukses!");
         return true;
     };
 
@@ -39,16 +39,13 @@ function validimiLogIn() {
         return emailRegex.test(email.toLowerCase());
     };
 
-    Submit1.addEventListener('click', validate);
+    Submit1.addEventListener('click', (event) => validate(event));
 }
 
-
 function validimiSignUp() {
-    const Submit2 = document.getElementById('submit2'); 
+    const Submit2 = document.getElementById('submit2');
 
     const validate = (ngjarja) => {
-        ngjarja.preventDefault(); 
-
         const emaili2 = document.getElementById('emaili2');
         const fjalkalimi2 = document.getElementById('pass2');
         const emrin1 = document.getElementById('emri1');
@@ -57,34 +54,38 @@ function validimiSignUp() {
         if (emrin1.value.trim() === "") {
             alert("Ju lutem shtoni emrin.");
             emrin1.focus();
+            ngjarja.preventDefault();
             return false;
         }
 
         if (mbiemri1.value.trim() === "") {
             alert("Ju lutem shtoni mbiemrin.");
             mbiemri1.focus();
+            ngjarja.preventDefault();
             return false;
         }
 
         if (emaili2.value.trim() === "") {
             alert("Ju lutem shtoni email-in.");
             emaili2.focus();
+            ngjarja.preventDefault();
             return false;
         }
 
         if (!emailValid(emaili2.value)) {
             alert("Ju lutem shtoni një email valid.");
             emaili2.focus();
+            ngjarja.preventDefault();
             return false;
         }
 
         if (fjalkalimi2.value.trim() === "") {
             alert("Ju lutem shtoni fjalëkalimin.");
             fjalkalimi2.focus();
+            ngjarja.preventDefault();
             return false;
         }
 
-        alert("Sign Up u realizua me sukses!");
         return true;
     };
 
@@ -93,5 +94,5 @@ function validimiSignUp() {
         return emailRegex.test(email.toLowerCase());
     };
 
-    Submit2.addEventListener('click', validate);
+    Submit2.addEventListener('click', (event) => validate(event));
 }
