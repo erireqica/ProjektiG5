@@ -26,9 +26,9 @@
                         <form action="login.php" method="POST"> 
                             <ul> 
                                 <label id="tekst1" style="color: white;"> <h1>Log In⠀⠀</h1></label>
-                                <li><input id="emaili1" type="email" placeholder="Email" size="20"/></li>
-                                <li><input id="pass1" type="password" placeholder="Password"size="20"/></li>
-                                <li><input id="submit1" type="submit" value="SUBMIT"/></li>
+                                <li><input id="emaili1" name="email" type="email" placeholder="Email" size="20"/></li>
+                                <li><input id="pass1" name="password" type="password" placeholder="Password"size="20"/></li>
+                                <li><input id="submit1" name="login" type="submit" value="SUBMIT"/></li>
                             </ul> 
                         </form> 
                 </div>
@@ -39,11 +39,11 @@
                         <form action="register.php" method="POST"> 
                             <ul> 
                                 <label id="tekst2" style="color: white;"><h1>Sign Up⠀⠀</h1></label>
-                                <li><input id="emri1" type="text" placeholder="Emri" size="20"/></li> 
-                                <li><input id="mbiemri1" type="text" placeholder="Mbiemri" size="20"/></li>
-                                <li><input id="emaili2" type="email" placeholder="Email" size="20"/></li>
+                                <li><input id="emri1" name="name" type="text" placeholder="Emri" size="20"/></li> 
+                                <li><input id="mbiemri1" name="surname" type="text" placeholder="Mbiemri" size="20"/></li>
+                                <li><input id="emaili2" name="email" type="email" placeholder="Email" size="20"/></li>
                                 <li><input id="pass2" type="password" placeholder="Password" size="20"/></li>
-                                <li><input id="submit2" type="submit" value="SUBMIT"/></li>
+                                <li><input id="submit2" name="register" type="submit" value="SUBMIT"/></li>
                             </ul> 
                         </form> 
                     </div>

@@ -30,7 +30,6 @@ function validimiLogIn() {
             return false;
         }
 
-        alert("Log In u realizua me sukses!");
         return true;
     };
 
@@ -84,7 +83,6 @@ function validimiSignUp() {
             return false;
         }
 
-        alert("Sign Up u realizua me sukses!");
         return true;
     };
 
