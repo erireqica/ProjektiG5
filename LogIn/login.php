@@ -1,5 +1,7 @@
 <?php
-    if (isset($_POST['register'])) {
+
+    if (isset($_POST['login'])) {
+
         session_start();
 
         $host = "localhost";
@@ -35,5 +37,5 @@
             echo "Gabim: " . $e->getMessage();
         }
     }
-
+    
 ?>
