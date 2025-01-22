@@ -4,7 +4,7 @@ session_start();
 <html>
     <head>
         <title>JavaScript Form Validation using a sample registration form</title>
-        <link rel='stylesheet' href='news.css' type='text/css' />
+        <link rel='stylesheet' href='reviews.css' type='text/css' />
         <script src="LogIn.js"></script> 
     </head> 
     
@@ -16,7 +16,7 @@ session_start();
                     <ul id="top">
                         <li><a href="/ProjektiG5A/ProjektiG5/Main/main.php"> Home </a></li>
                         <li><a href="/ProjektiG5A/ProjektiG5/Products/products.html"> Products </a></li>
-                        <li><a href="news.php"> News </a></li>
+                        <li><a href="reviews.php"> Reviews </a></li>
                         <li><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
                         <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
                         <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>

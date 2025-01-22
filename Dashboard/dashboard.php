@@ -37,7 +37,7 @@ try {
                 <ul id="top">
                     <li><a href="/ProjektiG5A/ProjektiG5/Main/main.php">Home</a></li>
                     <li><a href="/ProjektiG5A/ProjektiG5/Products/products.html">Products</a></li>
-                    <li><a href="/ProjektiG5A/ProjektiG5/News/news.php">News</a></li>
+                    <li><a href="/ProjektiG5A/ProjektiG5/Reviews/reviews.php">Reviews</a></li>
                     <li><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html">Contact Us</a></li>
                     <li><a href="dashboard.php">Dashboard</a></li>
                     <li><a href="/ProjektiG5A/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
