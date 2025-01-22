@@ -116,3 +116,6 @@ input{
     border-radius: 20px;
 }
 
+#topbar #top a:hover {
+    color: #f39c12;
+}

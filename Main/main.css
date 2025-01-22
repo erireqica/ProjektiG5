@@ -151,3 +151,7 @@ p{
     border-radius: 15%;
     text-shadow: 3px 2px 4px black;
 }
+
+#main #topbar #top a:hover {
+    color: #f39c12;
+}
