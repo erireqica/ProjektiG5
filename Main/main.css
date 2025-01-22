@@ -1,3 +1,7 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -22,6 +26,7 @@ html, body {
     background-image: url("../ProjektiImages/background.jpg"); 
     background-size: cover;
     background-position: center;
+    border-top: solid black 5px;
 }
 
 #kryesor2{
@@ -154,4 +159,77 @@ p{
 
 #main #topbar #top a:hover {
     color: #f39c12;
+}
+
+#slider-container {
+    width: 75%;
+    height: 75%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.7);
+    position: relative;
+    margin-top: 9%;
+}
+
+#slider {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+}
+
+#slider img {
+    width: calc(100% / 3);
+    height: 100%;
+    object-fit: cover;
+}
+
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#slider-container:hover #prev, #slider-container:hover #next {
+    display: block;
+}
+
+#prev {
+    left: 10px;
+}
+
+#next {
+    right: 10px;
+}
+
+#kryesor3 {
+    width: 100%;
+    height: 110%;
+    display: flex;
+    background-color: black;
+    background-image: url('../ProjektiImages/background2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#titulli {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding: 15px 30px;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-shadow: 4px 4px 6px black;
 }
