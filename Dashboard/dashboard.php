@@ -5,7 +5,6 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-// Database connection
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -23,12 +22,14 @@ try {
 }
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel='stylesheet' href='dashboard.css' type='text/css' />
+    <link rel="stylesheet" href="dashboard.css">
 </head>
-
 <body>
     <div id="main">
         <div id="topbar">
@@ -45,15 +46,13 @@ try {
             </nav>
         </div>
 
-        <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg'); background-size: cover; background-position: center; height: 100vh;">
+        <div id="kryesor">
             <div id="content">
                 <h1>Admin Dashboard</h1>
 
-                <?php
-                if (isset($_GET['message'])) {
-                    echo "<div class='success'>" . htmlspecialchars($_GET['message']) . "</div>";
-                }
-                ?>
+                <?php if (isset($_GET['message'])): ?>
+                    <div class="success"><?php echo htmlspecialchars($_GET['message']); ?></div>
+                <?php endif; ?>
 
                 <h2>Manage Users</h2>
                 <table>
@@ -61,24 +60,30 @@ try {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th>Action</th>
+                        <th>Actions</th>
                     </tr>
                     <?php foreach ($users as $user): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($user['name']); ?></td>
-                        <td><?php echo htmlspecialchars($user['email']); ?></td>
-                        <td><?php echo htmlspecialchars($user['role']); ?></td>
-                        <td>
-                            <form method="POST" action="updateRole.php">
-                                <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                                <select name="role">
-                                    <option value="user" <?php echo $user['role'] == 'user' ? 'selected' : ''; ?>>User</option>
-                                    <option value="admin" <?php echo $user['role'] == 'admin' ? 'selected' : ''; ?>>Admin</option>
-                                </select>
-                                <button type="submit">Update</button>
-                            </form>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><?php echo htmlspecialchars($user['name']); ?></td>
+                            <td><?php echo htmlspecialchars($user['email']); ?></td>
+                            <td><?php echo htmlspecialchars($user['role']); ?></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <form method="POST" action="updateRole.php">
+                                        <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                                        <select name="role">
+                                            <option value="user" <?php echo $user['role'] == 'user' ? 'selected' : ''; ?>>User</option>
+                                            <option value="admin" <?php echo $user['role'] == 'admin' ? 'selected' : ''; ?>>Admin</option>
+                                        </select>
+                                        <button type="submit" class="update-button">Update</button>
+                                    </form>
+                                    <form method="POST" action="deleteUser.php">
+                                        <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                                        <button type="submit" class="delete-button">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                 </table>
             </div>

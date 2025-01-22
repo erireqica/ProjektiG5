@@ -34,7 +34,7 @@
                 ":role" => "user"
             ]);
 
-            header("Location: LogIn.html");
+            header("Location: LogIn.php?success");
             exit();
             
         } catch (PDOException $e) {

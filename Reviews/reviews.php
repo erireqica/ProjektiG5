@@ -24,7 +24,7 @@ session_start();
                         <?php endif; ?>
                         <li><a href="/ProjektiG5A/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
                         <?php else: ?>
-                            <li><a href="/ProjektiG5A/ProjektiG5/LogIn/LogIn.html">Log In</a></li>
+                            <li><a href="/ProjektiG5A/ProjektiG5/LogIn/LogIn.php">Log In</a></li>
                         <?php endif; ?>
                     </ul>
             </div>
