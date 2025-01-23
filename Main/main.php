@@ -1,5 +1,28 @@
 <?php
     session_start();
+
+    $servername = "localhost";
+    $username = "root";
+    $password = ""; 
+    $dbname = "log";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $textContent = [];
+    $sql = "SELECT section, content FROM text_content";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $textContent[$row['section']] = $row['content'];
+        }
+    }
+
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +69,6 @@
                 </div>
             </div>
 
-
             <script>
                let currentIndex = 0;
                 const slides = document.querySelectorAll("#slider img");
@@ -85,7 +107,7 @@
 
             <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg'); background-size: cover; background-position: center; height: 100vh;">
                 <div id="teksti">
-                    <p><b>Where style meets precision. Whether you're here for a sharp new look or a relaxing shave, our expert barbers are ready to provide you with top-notch grooming in a comfortable, laid-back atmosphere. Book your appointment today and leave feeling your best!</b></p>
+                    <p><b><?php echo htmlspecialchars($textContent['teksti']); ?></b></p>
                     <button id="btn1"><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html"><b> CONTACT US </b></a></button>
                 </div>
                 <div id="foto">
@@ -99,7 +121,7 @@
                 </div>
 
                 <div id="teksti2">
-                    <p><b>Discover top-quality grooming products designed to elevate your style. From premium razors and clippers to nourishing beard oils and hair care essentials, we offer everything you need to look and feel your best. Experience the ultimate in barber-quality care!</b></p>
+                    <p><b><?php echo htmlspecialchars($textContent['teksti2']); ?></b></p>
                     <button id="btn2"><a href="/ProjektiG5A/ProjektiG5/Products/Products.html"><b> PRODUCTS </b></a></button>
                 </div>
 
