@@ -27,6 +27,7 @@ if (isset($_POST['login'])) {
             $_SESSION['loggedIn'] = true;
             $_SESSION['user'] = $user['name'];
             $_SESSION['role'] = $user['role'];
+            $_SESSION['user_id'] = $user['id'];
 
             if ($user['role'] === 'admin') {
                 header("Location: /ProjektiG5A/ProjektiG5/Dashboard/dashboard.php");
