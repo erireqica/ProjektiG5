@@ -51,17 +51,7 @@
                 </nav>
             </div>
 
-            <div id="kryesor">
-
-                <script>
-                    if (window.matchMedia("(min-width: 1025px)").matches) {
-                        const kryesor = document.getElementById("kryesor");
-                        kryesor.style.backgroundImage = "url('../ProjektiImages/background.jpg')";
-                        kryesor.style.backgroundSize = "cover";
-                        kryesor.style.backgroundPosition = "center";
-                        kryesor.style.height = "100vh";
-                    }
-                </script>
+            <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg'); background-size: cover; background-position: center; height: 100vh;">
 
                 <div id="content">
                     <h1>Admin Dashboard</h1>
