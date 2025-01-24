@@ -23,6 +23,8 @@
     }
 
     $conn->close();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 1025px)">
+        <link rel="stylesheet" href="css/tablet.css" media="screen and (min-width: 768px) and (max-width: 1024px)">
+        <link rel="stylesheet" href="css/mobile.css" media="screen and (min-width: 1px) and (max-width: 767px)">
         <title>Document</title>
     </head>
 
@@ -40,6 +44,7 @@
             
             <div id="topbar">
                 <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
+                <button style="color:white;" id="menu-toggle">&#9776;</button>
                 <ul id="top">
                     <li><a href="main.php"> Home </a></li>
                     <li><a href="/ProjektiG5A/ProjektiG5/Products/products.html"> Products </a></li>
@@ -56,7 +61,7 @@
                 </ul>
             </div>
         
-            <div id="kryesor3">
+            <div id="kryesor3" style="background-image: url('../ProjektiImages/background2.jpg')">
                 <p id="titulli">THE BARBERSHOP</p>
                 <div id="slider-container">
                     <div id="slider">
@@ -103,9 +108,29 @@
                     autoSlideInterval = setInterval(nextSlide, 4000);
                 });
 
+
+
+                
+                if (window.matchMedia("(max-width: 767px)").matches) {
+                const menuToggle = document.getElementById('menu-toggle');
+                const topNav = document.getElementById('top');
+
+                menuToggle.addEventListener('click', () => {
+                    topNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+            } else {
+                const topNav = document.getElementById('top');
+                const menuToggle = document.getElementById('menu-toggle');
+                menuToggle.style.display = 'none';
+                topNav.style.display = 'flex';
+            }
+
+
             </script>
 
-            <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg'); background-size: cover; background-position: center; height: 100vh;">
+
+            <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg')">
                 <div id="teksti">
                     <p><b><?php echo htmlspecialchars($textContent['teksti']); ?></b></p>
                     <button id="btn1"><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html"><b> CONTACT US </b></a></button>
@@ -115,7 +140,7 @@
                 </div>
             </div>
 
-            <div id="kryesor2" style="width: 100%; height: 100%; display: flex; background-color: black; background-image: url('../ProjektiImages/background2.jpg'); background-size: cover; background-position: center; border-top: solid black 5px;">
+            <div id="kryesor2" style="background-image: url('../ProjektiImages/background.jpg')">
                 <div id="foto2">
                     <img id="products" src="../ProjektiImages/products.png" alt="products">
                 </div>
