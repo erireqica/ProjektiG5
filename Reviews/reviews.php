@@ -90,7 +90,7 @@
                     </ul>           
                 </nav>
             </div>
-            <div id="kryesor" style="position:absolute; background-image: url('../ProjektiImages/background.jpg');">           
+            <div id="kryesor" style="position:absolute; background-image: url('../ProjektiImages/background.jpg'); height: 150vh;">           
             <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
                 <div id="review-form">
                     <h2 style="text-align:center; color:orange;">Submit Your Review</h2>
