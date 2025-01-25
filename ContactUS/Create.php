@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="Contact.css">
-    <script src='Contact.js'></script>
+    <link rel="stylesheet" href="/projekti WEB G5/ContactUs/ContactUs.css">
+    <script src='/projekti WEB G5/ContactUs.js'></script>
     <style>
         body {
             font-family: 'Gill Sans';
             margin: 0;
             padding: 0;
-            background-image:  url("../ProjektiImages/background.jpg");
+            background-image:  url("/projekti WEB G5/ProjektiImages/background.jpg");
             background-size: cover;
             color: #333;
         }
@@ -135,10 +135,10 @@
         <div id="topbar">
             <img id="logo" src="/ProjektiImages/logo (1).png" alt="logo" class="barber-logo">
             <ul id="top">
-                <li><a href="Main/main.html">Home</a></li>
-                <li><a href="/Products/products.html">Products</a></li>
-                <li><a href="../../AboutUs/AboutUs.html">About Us</a></li>
-                <li><a href="/LogIn/LogIn.html">Log In</a></li>
+                <li><a href="/projekti WEB G5/Main/main.php">Home</a></li>
+                <li><a href="/projekti WEB G5/Products/products.html">Products</a></li>
+                <li><a href="/projekti WEB G5/AboutUs/AboutUs.html">About Us</a></li>
+                <li><a href="/projekti WEB G5/LogIn/LogIn.html">Log In</a></li>
                 
             </ul>
         </div>
