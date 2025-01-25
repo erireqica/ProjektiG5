@@ -133,15 +133,19 @@
 <body>
 <div id="main">
         <div id="topbar">
-            <img id="logo" src="/ProjektiImages/logo (1).png" alt="logo" class="barber-logo">
-            <ul id="top">
-                <li><a href="/ProjektiG5/Main/main.html">Home</a></li>
-                <li><a href="/ProjektiG5/Products/products.html">Products</a></li>
-                <li><a href="../ProjektiG5/AboutUs/AboutUs.html">About Us</a></li>
-                <li><a href="/ProjektiG5/LogIn/LogIn.html">Log In</a></li>
-                
-            </ul>
-        </div>
+                <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
+                <button id="menu-toggle">&#9776;</button>
+                <nav>
+                    <ul id="top">
+                        <li><a href="/ProjektiG5/Main/main.php">Home</a></li>
+                        <li><a href="/ProjektiG5/Products/products.html">Products</a></li>
+                        <li><a href="/ProjektiG5/Reviews/reviews.php">Reviews</a></li>
+                        <li><a href="/ProjektiG5/ContactUS/ContactUs.html">Contact Us</a></li>
+                        <li><a href="dashboard.php">Dashboard</a></li>
+                        <li><a href="/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
+                    </ul>
+                </nav>
+            </div>
         
         <div class="container">
             <h1>Contact Us</h1>
