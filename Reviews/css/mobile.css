@@ -93,6 +93,7 @@ html, body {
     left: 0;
     z-index: 10;
     transition: all 0.3s ease;
+    margin-top: -5px;
 }
 
 #top.active {
@@ -289,3 +290,17 @@ html, body {
     }
 }
 
+.delete-form button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em; 
+    margin-top: 4px;
+}
+
+.delete-form button:hover {
+    background: #c0392b;
+}
