@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="/projekti WEB G5/ContactUs/ContactUs.css">
-    <script src='/projekti WEB G5/ContactUs.js'></script>
+    <link rel="stylesheet" href="/ProjektiG5/ContactUs/ContactUs.css">
+    <script src='/ProjektiG5/ContactUs/ContactUs.js'></script>
     <style>
         body {
             font-family: 'Gill Sans';
