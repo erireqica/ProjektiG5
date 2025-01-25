@@ -135,10 +135,10 @@
         <div id="topbar">
             <img id="logo" src="/ProjektiImages/logo (1).png" alt="logo" class="barber-logo">
             <ul id="top">
-                <li><a href="Main/main.html">Home</a></li>
-                <li><a href="/Products/products.html">Products</a></li>
-                <li><a href="../../AboutUs/AboutUs.html">About Us</a></li>
-                <li><a href="/LogIn/LogIn.html">Log In</a></li>
+                <li><a href="/ProjektiG5/Main/main.html">Home</a></li>
+                <li><a href="/ProjektiG5/Products/products.html">Products</a></li>
+                <li><a href="../ProjektiG5/AboutUs/AboutUs.html">About Us</a></li>
+                <li><a href="/ProjektiG5/LogIn/LogIn.html">Log In</a></li>
                 
             </ul>
         </div>
