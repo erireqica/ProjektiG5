@@ -49,7 +49,9 @@ if (isset($_POST['login'])) {
 <html>
     <head>
         <link rel='stylesheet' href='LogIn.css' type='text/css' />
-        <script src="LogIn.js"></script> 
+        <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 1025px)">
+        <link rel="stylesheet" href="css/tablet.css" media="screen and (min-width: 768px) and (max-width: 1024px)">
+        <link rel="stylesheet" href="css/mobile.css" media="screen and (min-width: 1px) and (max-width: 767px)">
     </head> 
     
     <body> 
@@ -65,7 +67,7 @@ if (isset($_POST['login'])) {
                 </ul>
             </div>
 
-            <div id="kryesor">
+            <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg');">
                 <div id="Block1">
                     <div id="LogIn">
                         <form action="login.php" method="POST"> 
