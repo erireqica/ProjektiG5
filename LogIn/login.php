@@ -31,9 +31,9 @@ if (isset($_POST['login'])) {
                 $_SESSION['user_id'] = $user['id'];
 
                 if ($user['role'] === 'admin') {
-                    header("Location: /ProjektiG5A/ProjektiG5/Dashboard/dashboard.php");
+                    header("Location: /ProjektiG5/Dashboard/dashboard.php");
                 } else {
-                    header("Location: /ProjektiG5A/ProjektiG5/Main/main.php");
+                    header("Location: /ProjektiG5/Main/main.php");
                 }
                 exit;
             } else {
@@ -59,10 +59,10 @@ if (isset($_POST['login'])) {
             <div id="topbar">
                 <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
                 <ul id="top">
-                    <li class="bar"><a href="/ProjektiG5A/ProjektiG5/Main/main.php"> Home </a></li>
-                    <li class="bar"><a href="/ProjektiG5A/ProjektiG5/Products/Products.html"> Products </a></li>
-                    <li class="bar"><a href="/ProjektiG5A/ProjektiG5/Reviews/reviews.php"> Reviews </a></li>
-                    <li class="bar"><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
+                    <li class="bar"><a href="/ProjektiG5/Main/main.php"> Home </a></li>
+                    <li class="bar"><a href="/ProjektiG5/Products/Products.html"> Products </a></li>
+                    <li class="bar"><a href="/ProjektiG5/Reviews/reviews.php"> Reviews </a></li>
+                    <li class="bar"><a href="/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
                     <li class="bar"><a href="LogIn.php"> Log In </a></li>
                 </ul>
             </div>

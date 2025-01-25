@@ -75,17 +75,17 @@
                 <button id="menu-toggle" style="color:white; margin-left:auto">&#9776;</button>
                 <nav>
                     <ul id="top">
-                        <li><a href="/ProjektiG5A/ProjektiG5/Main/main.php">Home</a></li>
-                        <li><a href="/ProjektiG5A/ProjektiG5/Products/products.html">Products</a></li>
+                        <li><a href="/ProjektiG5/Main/main.php">Home</a></li>
+                        <li><a href="/ProjektiG5/Products/products.html">Products</a></li>
                         <li><a href="reviews.php">Reviews</a></li>
-                        <li><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html">Contact Us</a></li>
+                        <li><a href="/ProjektiG5/ContactUS/ContactUs.html">Contact Us</a></li>
                         <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-                            <li><a href="/ProjektiG5A/ProjektiG5/Dashboard/dashboard.php"> Dashboard </a></li>
+                            <li><a href="/ProjektiG5/Dashboard/dashboard.php"> Dashboard </a></li>
                         <?php endif; ?>
                         <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
-                            <li><a href="/ProjektiG5A/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
+                            <li><a href="/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
                         <?php else: ?>
-                            <li><a href="/ProjektiG5A/ProjektiG5/LogIn/LogIn.php">Log In</a></li>
+                            <li><a href="/ProjektiG5/LogIn/LogIn.php">Log In</a></li>
                         <?php endif; ?>
                     </ul>           
                 </nav>
@@ -110,7 +110,7 @@
                 </div>
             <?php else: ?>
                <h2 id="teksti"> You need to be logged in to review! </h2>
-               <button type="button" id="btn"><a href="/ProjektiG5A/ProjektiG5/LogIn/LogIn.php"> Log In </button>
+               <button type="button" id="btn"><a href="/ProjektiG5/LogIn/LogIn.php"> Log In </button>
             <?php endif; ?>
 
             <div id="reviews-section">

@@ -48,16 +48,16 @@
                 <nav>
                     <ul id="top">
                         <li><a href="main.php"> Home </a></li>
-                        <li><a href="/ProjektiG5A/ProjektiG5/Products/products.html"> Products </a></li>
-                        <li><a href="/ProjektiG5A/ProjektiG5/Reviews/reviews.php"> Reviews </a></li>
-                        <li><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
+                        <li><a href="/ProjektiG5/Products/products.html"> Products </a></li>
+                        <li><a href="/ProjektiG5/Reviews/reviews.php"> Reviews </a></li>
+                        <li><a href="/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
                         <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
                         <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-                            <li><a href="/ProjektiG5A/ProjektiG5/Dashboard/dashboard.php"> Dashboard </a></li>
+                            <li><a href="/ProjektiG5/Dashboard/dashboard.php"> Dashboard </a></li>
                         <?php endif; ?>
-                        <li><a href="/ProjektiG5A/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
+                        <li><a href="/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
                         <?php else: ?>
-                            <li><a href="/ProjektiG5A/ProjektiG5/LogIn/LogIn.php">Log In</a></li>
+                            <li><a href="/ProjektiG5/LogIn/LogIn.php">Log In</a></li>
                         <?php endif; ?>
                     </ul>
                 </nav>
@@ -135,10 +135,10 @@
             <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg');">
                 <div id="teksti">
                     <p><b><?php echo htmlspecialchars($textContent['teksti']); ?></b></p>
-                    <button id="btn1"><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html"><b> CONTACT US </b></a></button>
+                    <button id="btn1"><a href="/ProjektiG5/ContactUS/ContactUs.html"><b> CONTACT US </b></a></button>
                 </div>
                 <div id="foto">
-                    <img id="barber" src="/ProjektiG5A/ProjektiG5/ProjektiImages/barber.jpg" alt="barber">
+                    <img id="barber" src="/ProjektiG5/ProjektiImages/barber.jpg" alt="barber">
                 </div>
             </div>
 
@@ -149,7 +149,7 @@
 
                 <div id="teksti2">
                     <p><b><?php echo htmlspecialchars($textContent['teksti2']); ?></b></p>
-                    <button id="btn2"><a href="/ProjektiG5A/ProjektiG5/Products/Products.html"><b> PRODUCTS </b></a></button>
+                    <button id="btn2"><a href="/ProjektiG5/Products/Products.html"><b> PRODUCTS </b></a></button>
                 </div>
 
             </div>
