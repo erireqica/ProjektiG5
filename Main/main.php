@@ -45,20 +45,22 @@
             <div id="topbar">
                 <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
                 <button style="color:white;" id="menu-toggle">&#9776;</button>
-                <ul id="top">
-                    <li><a href="main.php"> Home </a></li>
-                    <li><a href="/ProjektiG5A/ProjektiG5/Products/products.html"> Products </a></li>
-                    <li><a href="/ProjektiG5A/ProjektiG5/Reviews/reviews.php"> Reviews </a></li>
-                    <li><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
-                    <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
-                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-                        <li><a href="/ProjektiG5A/ProjektiG5/Dashboard/dashboard.php"> Dashboard </a></li>
-                    <?php endif; ?>
-                    <li><a href="/ProjektiG5A/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
-                    <?php else: ?>
-                        <li><a href="/ProjektiG5A/ProjektiG5/LogIn/LogIn.php">Log In</a></li>
-                    <?php endif; ?>
-                </ul>
+                <nav>
+                    <ul id="top">
+                        <li><a href="main.php"> Home </a></li>
+                        <li><a href="/ProjektiG5A/ProjektiG5/Products/products.html"> Products </a></li>
+                        <li><a href="/ProjektiG5A/ProjektiG5/Reviews/reviews.php"> Reviews </a></li>
+                        <li><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
+                        <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
+                        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                            <li><a href="/ProjektiG5A/ProjektiG5/Dashboard/dashboard.php"> Dashboard </a></li>
+                        <?php endif; ?>
+                        <li><a href="/ProjektiG5A/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
+                        <?php else: ?>
+                            <li><a href="/ProjektiG5A/ProjektiG5/LogIn/LogIn.php">Log In</a></li>
+                        <?php endif; ?>
+                    </ul>
+                </nav>
             </div>
         
             <div id="kryesor3" style="background-image: url('../ProjektiImages/background2.jpg');">
