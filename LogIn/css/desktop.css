@@ -48,24 +48,11 @@ html, body {
     align-items: center; 
 }
 
-#LogIn{
-    width: 53%;
-    height: 55%;
-    background-color: black;
-    box-shadow: 0px 0px 30px 1vh white;
-    border-radius: 5px;
-}
 
-#SignUp{
-    width: 53%;
-    height: 75%;
-    background-color: rgb(0, 0, 0);
-    box-shadow: 0px 0px 30px 1vh white;
-    border-radius: 5px;
-}
 
 li{
     margin-top: 20px;
+    list-style: none;
 }
 
 .bar{
@@ -73,8 +60,8 @@ li{
 }
 
 #tekst1, #tekst2{
-    color: white;
-    text-align:center;
+    text-align: center;
+    color: #f39c12 !important;
 }
 
 #logo {
@@ -114,8 +101,29 @@ input{
 
 #submit1, #submit2{
     border-radius: 20px;
+    margin-bottom: 6vh;
+    margin-top: 1vh;
+    background: #f39c12;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
 }
 
 #topbar #top a:hover {
     color: #f39c12;
+}
+
+#LogIn, #SignUp {
+    text-decoration: none;
+    width: 53vh;
+    height: auto;
+    background-color: #2c2c2c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 2rem;
 }

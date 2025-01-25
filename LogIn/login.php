@@ -49,7 +49,7 @@ if (isset($_POST['login'])) {
 <html>
     <head>
         <link rel='stylesheet' href='LogIn.css' type='text/css' />
-        <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 1025px)">
+        <link rel="stylesheet" href="css/desktop.css?=v1" media="screen and (min-width: 1025px)">
         <link rel="stylesheet" href="css/tablet.css" media="screen and (min-width: 768px) and (max-width: 1024px)">
         <link rel="stylesheet" href="css/mobile.css" media="screen and (min-width: 1px) and (max-width: 767px)">
     </head> 
@@ -58,13 +58,15 @@ if (isset($_POST['login'])) {
         <div id="main">
             <div id="topbar">
                 <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
-                <ul id="top">
-                    <li class="bar"><a href="/ProjektiG5/Main/main.php"> Home </a></li>
-                    <li class="bar"><a href="/ProjektiG5/Products/Products.html"> Products </a></li>
-                    <li class="bar"><a href="/ProjektiG5/Reviews/reviews.php"> Reviews </a></li>
-                    <li class="bar"><a href="/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
-                    <li class="bar"><a href="LogIn.php"> Log In </a></li>
-                </ul>
+                <nav>
+                    <ul id="top">
+                        <li class="bar"><a href="/ProjektiG5/Main/main.php"> Home </a></li>
+                        <li class="bar"><a href="/ProjektiG5/Products/Products.html"> Products </a></li>
+                        <li class="bar"><a href="/ProjektiG5/Reviews/reviews.php"> Reviews </a></li>
+                        <li class="bar"><a href="/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
+                        <li class="bar"><a href="LogIn.php"> Log In </a></li>
+                    </ul>
+                </nav>
             </div>
 
             <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg');">
@@ -72,7 +74,7 @@ if (isset($_POST['login'])) {
                     <div id="LogIn">
                         <form action="login.php" method="POST"> 
                             <ul> 
-                                <label id="tekst1" style="color: white;"> <h1 class="h1">Log In</h1></label>
+                                <label id="tekst1" style="color: white;"> <h1 class="h1">&nbsp; Log In</h1></label>
                                 <li><input id="emaili1" name="email" type="email" placeholder="Email" size="20" value="<?php echo htmlspecialchars($email ?? ''); ?>" /></li>
                                 <li><input id="pass1" name="password" type="password" placeholder="Password" size="20" /></li>
                                 <li><input id="submit1" name="login" type="submit" value="SUBMIT" /></li>
@@ -88,7 +90,7 @@ if (isset($_POST['login'])) {
                 <div id="SignUp">
                     <form action="register.php" method="POST"> 
                         <ul> 
-                            <label id="tekst2" style="color: white;"><h1 class="h1">Sign Up</h1></label>
+                            <label id="tekst2" style="color: white;"><h1 class="h1">&nbsp; Sign Up</h1></label>
                             <li><input id="emri1" name="name" type="text" placeholder="Name" size="20"/></li> 
                             <li><input id="mbiemri1" name="surname" type="text" placeholder="Surname" size="20"/></li>
                             <li><input id="emaili2" name="email" type="email" placeholder="Email" size="20"/></li>
