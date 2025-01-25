@@ -61,7 +61,7 @@
                 </ul>
             </div>
         
-            <div id="kryesor3" style="background-image: url('../ProjektiImages/background2.jpg')">
+            <div id="kryesor3" style="background-image: url('../ProjektiImages/background2.jpg');">
                 <p id="titulli">THE BARBERSHOP</p>
                 <div id="slider-container">
                     <div id="slider">
@@ -130,7 +130,7 @@
             </script>
 
 
-            <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg')">
+            <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg');">
                 <div id="teksti">
                     <p><b><?php echo htmlspecialchars($textContent['teksti']); ?></b></p>
                     <button id="btn1"><a href="/ProjektiG5A/ProjektiG5/ContactUS/ContactUs.html"><b> CONTACT US </b></a></button>
@@ -140,7 +140,7 @@
                 </div>
             </div>
 
-            <div id="kryesor2" style="background-image: url('../ProjektiImages/background.jpg')">
+            <div id="kryesor2" style="background-image: url('../ProjektiImages/background.jpg');">
                 <div id="foto2">
                     <img id="products" src="../ProjektiImages/products.png" alt="products">
                 </div>

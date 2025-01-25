@@ -192,7 +192,7 @@ html, body {
     background-image: url('../ProjektiImages/background.jpg');
     background-size: cover;
     background-position: center;
-    height: 55vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -204,7 +204,7 @@ html, body {
     background-image: url('../ProjektiImages/background2.jpg');
     background-size: cover;
     background-position: center;
-    height: 55vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -216,7 +216,7 @@ html, body {
     background-image: url('../ProjektiImages/background2.jpg');
     background-size: cover;
     background-position: center;
-    height: 55vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
