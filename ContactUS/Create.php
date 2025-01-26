@@ -140,8 +140,8 @@
                         <li><a href="/ProjektiG5/Main/main.php">Home</a></li>
                         <li><a href="/ProjektiG5/Products/products.html">Products</a></li>
                         <li><a href="/ProjektiG5/Reviews/reviews.php">Reviews</a></li>
-                        <li><a href="/ProjektiG5/ContactUS/ContactUs.html">Contact Us</a></li>
-                        <li><a href="dashboard.php">Dashboard</a></li>
+                        <li><a href="ContactUs.php">Contact Us</a></li>
+                        <li><a href="/ProjektiG5/Dashboard/dashboard.php">Dashboard</a></li>
                         <li><a href="/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
                     </ul>
                 </nav>
