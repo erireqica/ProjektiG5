@@ -63,9 +63,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 1025px)">
-        <link rel="stylesheet" href="css/tablet.css?v=1" media="screen and (min-width: 768px) and (max-width: 1024px)">
-        <link rel="stylesheet" href="css/mobile.css?v=1" media="screen and (min-width: 1px) and (max-width: 767px)">
+        <link rel="stylesheet" href="css/desktop.css?v=1" media="screen and (min-width: 1025px)">
+        <link rel="stylesheet" href="css/tablet.css?v=2" media="screen and (min-width: 768px) and (max-width: 1024px)">
+        <link rel="stylesheet" href="css/mobile.css?v=2" media="screen and (min-width: 1px) and (max-width: 767px)">
     </head>
     <body>
         <div id="main">
@@ -109,7 +109,7 @@
                 </div>
             <?php else: ?>
                <h2 id="teksti"> You need to be logged in to review! </h2>
-               <button type="button" id="btn"><a href="/ProjektiG5/LogIn/LogIn.php"> Log In </button>
+               <button type="button" id="btn"><a style="color:white; text-decoration:none;" href="/ProjektiG5/LogIn/LogIn.php"> Log In </a> </button>
             <?php endif; ?>
 
             <div id="reviews-section">

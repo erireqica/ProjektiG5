@@ -168,6 +168,8 @@ table {
     overflow-x: auto; 
     display: block;
     text-align: left;
+    max-height: 450px;
+    overflow-y: scroll;
 }
 
 th, td {
