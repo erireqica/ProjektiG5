@@ -195,8 +195,8 @@ button:hover {
 }
 
 select {
-    padding: 10px;
-    font-size: 1.1em;
+    padding:0px;
+    font-size: 0.7em !important;
     background-color: #222;
     color: white;
     border: 1px solid #444;

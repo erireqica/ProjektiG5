@@ -160,8 +160,8 @@ html, body {
     background-color: rgb(166, 56, 19);
     border: 2px solid darkred;
     color: white;
-    font-size: 14px;
-    padding: 10px 20px;
+    font-size: 0.75rem;
+    padding: 5px 10px;
     border-radius: 25px;
     text-shadow: 1px 1px 3px black;
     margin: 10px 0;

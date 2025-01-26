@@ -50,9 +50,9 @@ if (isset($_POST['login'])) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/desktop.css?=v1" media="screen and (min-width: 1025px)">
+        <link rel="stylesheet" href="css/desktop.css?=v2" media="screen and (min-width: 1025px)">
         <link rel="stylesheet" href="css/tablet.css" media="screen and (min-width: 768px) and (max-width: 1024px)">
-        <link rel="stylesheet" href="css/mobile.css?v=1" media="screen and (min-width: 1px) and (max-width: 767px)">
+        <link rel="stylesheet" href="css/mobile.css" media="screen and (min-width: 1px) and (max-width: 767px)">
     </head> 
     
     <body> 

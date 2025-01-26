@@ -63,7 +63,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/desktop.css?v=1" media="screen and (min-width: 1025px)">
+        <link rel="stylesheet" href="css/desktop.css?v=2" media="screen and (min-width: 1025px)">
         <link rel="stylesheet" href="css/tablet.css?v=2" media="screen and (min-width: 768px) and (max-width: 1024px)">
         <link rel="stylesheet" href="css/mobile.css?v=2" media="screen and (min-width: 1px) and (max-width: 767px)">
     </head>
@@ -89,7 +89,7 @@
                     </ul>           
                 </nav>
             </div>
-            <div id="kryesor" style="position:absolute; background-image: url('../ProjektiImages/background.jpg'); height: 150vh;">           
+            <div id="kryesor" style="position:absolute; background-image: url('../ProjektiImages/background.jpg');">           
             <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
                 <div id="review-form">
                     <h2 style="text-align:center; color:orange;">Submit Your Review</h2>

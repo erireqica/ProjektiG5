@@ -202,6 +202,7 @@ html, body {
     padding: 10px;
     max-width: 600px;
     margin: 0 auto;
+    text-align: center !important;
 }
 
 #foto, #foto2 {
