@@ -32,7 +32,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 1025px)">
+        <link rel="stylesheet" href="css/desktop.css?v=2" media="screen and (min-width: 1025px)">
         <link rel="stylesheet" href="css/tablet.css" media="screen and (min-width: 768px) and (max-width: 1024px)">
         <link rel="stylesheet" href="css/mobile.css" media="screen and (min-width: 1px) and (max-width: 767px)">
         <title>Document</title>
@@ -135,7 +135,7 @@
             <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg');">
                 <div id="teksti">
                     <p><b><?php echo htmlspecialchars($textContent['teksti']); ?></b></p>
-                    <button id="btn1"><a href="/ProjektiG5/ContactUS/ContactUs.html"><b> CONTACT US </b></a></button>
+                    <button id="btn1"><a style="color:white;" href="/ProjektiG5/ContactUS/ContactUs.html"><b> CONTACT US </b></a></button>
                 </div>
                 <div id="foto">
                     <img id="barber" src="/ProjektiG5/ProjektiImages/barber.jpg" alt="barber">
@@ -149,7 +149,7 @@
 
                 <div id="teksti2">
                     <p><b><?php echo htmlspecialchars($textContent['teksti2']); ?></b></p>
-                    <button id="btn2"><a href="/ProjektiG5/Products/Products.html"><b> PRODUCTS </b></a></button>
+                    <button id="btn2"><a style="color:white;" href="/ProjektiG5/Products/Products.html"><b> PRODUCTS </b></a></button>
                 </div>
 
             </div>

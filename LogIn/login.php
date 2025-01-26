@@ -81,7 +81,7 @@ if (isset($_POST['login'])) {
                                 <li><input id="pass1" name="password" type="password" placeholder="Password" size="20" /></li>
                                 <li><input id="submit1" name="login" type="submit" value="SUBMIT" /></li>
                                 <?php if (!empty($error)): ?>
-                                    <p style="color: red; margin-left: 15%;"><?php echo htmlspecialchars($error); ?></p>
+                                    <p class="text" style="color: red;"><?php echo htmlspecialchars($error); ?></p>
                                 <?php endif; ?>
                             </ul> 
                         </form> 
@@ -100,9 +100,9 @@ if (isset($_POST['login'])) {
                             <li><input id="submit2" name="register" type="submit" value="SUBMIT"/></li>
                             <?php 
                                 if (isset($_GET['register_error'])) {
-                                    echo "<p style='color: red;'>" . htmlspecialchars($_GET['register_error']) . "</p>";
+                                    echo "<p class='text2' style='color: red;'>" . htmlspecialchars($_GET['register_error']) . "</p>";
                                 } elseif (isset($_GET['success'])) {
-                                    echo "<p style='color: lightgreen;'>Sign Up Successful</p>";
+                                    echo "<p class='text3' style='color: lightgreen;'>Sign Up Successful</p>";
                                 }
                             ?>
                         </ul> 

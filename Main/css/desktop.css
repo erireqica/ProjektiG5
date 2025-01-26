@@ -1,5 +1,8 @@
-*{
+* {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -7,158 +10,127 @@ html, body {
     margin: 0;
 }
 
-#main{
+#main {
     width: 100%;
     height: 100%;
 }
 
-#topbar{
+#topbar {
     width: 100%;
-    height: 15%;
+    height: 12%;
     background-color: rgb(0, 0, 0);
-}
-
-#kryesor{
-    width: 100%;
-    height: 100%;
     display: flex;
-    background-color: black;
-    background-image: url("../ProjektiImages/background.jpg"); 
-    background-size: cover;
-    background-position: center;
-    border-top: solid black 5px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-#kryesor2{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    background-color: black;
-    background-image: url("../ProjektiImages/background2.jpg"); 
-    background-size: cover;
-    background-position: center;
-    border-top: solid black 5px;
+a{
+    text-decoration: none;
 }
 
-
-#logo{
-    margin-left: 0%;
-    margin-top: -1%;
-    width: 8%;
-    height: 130%;
-    opacity: 100%;
-    clip-path: inset(0 0 15% 0);
+#logo {
+    width: 80px;
+    height: auto;
 }
 
 #top {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     list-style: none;
-    margin-top: -5.5%;
-    margin-left: 0.62%;
     padding: 0;
+    margin: 0;
+    gap: 20px;
+    font-size: 1.3rem;
     color: white;
-    font-size: 120%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-a{
+#top a {
     color: white;
     text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease;
 }
 
-li{
-    margin-left: 130px;
+#top li {
+    margin: 0;
 }
 
-#teksti{
-    height: 70%;
-    width: 50%;
-    font-size: 200%;
-    padding: 5%;
-    padding-top:10%;
-    text-shadow: 3px 3px 2px black;
-}
-
-#teksti2{
-    height: 65%;
-    width: 50%;
-    font-size: 200%;
-    padding: 5%;
-    padding-top:10%;
-    text-shadow: 3px 3px 2px black;
-}
-
-#foto{
-    height: 65%;
-    width: 40%;
-    display: flex;
-    
-}
-
-#foto2{
-    height: 70%;
-    width: 40%;
-    display: flex;
-    align-items: center;
-    
-}
-
-#barber{
-    width: 100%;
-    height: 100%;
-    margin-top: 18%;
-    border-radius: 5%;
-    box-shadow: 0px 0px 100px 6vh black;
-    margin-left: -5%;
-
-}
-
-#products{
-    width: 100%;
-    height: 100%;
-    margin-top: 30%;
-    border-radius: 5%;
-    box-shadow: 0px 0px 100px 6vh black;
-    margin-left: 5%;
-
-}
-
-p{
-    color: white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-#btn1{
-    display: flex;
-    margin-left: -10%;
-    justify-self: center;
-    background-color: rgb(166, 56, 19);
-    border: 4px solid darkred;
-    color: white;
-    font-size: 60%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 1.5% 3%;
-    border-radius: 15%;
-    text-shadow: 3px 2px 4px black;
-}
-
-#btn2{
-    display: flex;
-    margin-left: -10%;
-    justify-self: center;
-    background-color: rgb(166, 56, 19);
-    border: 4px solid darkred;
-    color: white;
-    font-size: 60%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 1.5% 3%;
-    border-radius: 15%;
-    text-shadow: 3px 2px 4px black;
-}
-
-#main #topbar #top a:hover {
+#top a:hover {
     color: #f39c12;
+}
+
+#kryesor {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    background-image: url("../ProjektiImages/background.jpg");
+    background-size: cover;
+    background-position: center;
+    border-top: solid black 5px;
+}
+
+#kryesor2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    background-image: url("../ProjektiImages/background2.jpg");
+    background-size: cover;
+    background-position: center;
+    border-top: solid black 5px;
+}
+
+#teksti, #teksti2 {
+    height: 100%;
+    width: 60%;
+    font-size: 1.8rem !important;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 3px 3px 2px black;
+    margin: 0 auto;
+    gap: 1rem;
+    color: white;
+    text-align: center;
+}
+
+#foto, #foto2 {
+    height: 70%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5%;
+}
+
+#barber, #products {
+    width: 100%;
+    height: 85%;
+    margin-top: 35%;
+    border-radius: 5%;
+    box-shadow: 0px 0px 100px 6vh black;
+}
+
+
+#btn1, #btn2 {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(166, 56, 19);
+    border: 4px solid darkred;
+    color: white;
+    font-size: 0.85rem;
+    padding: 1.5% 3%;
+    border-radius: 15%;
+    text-shadow: 3px 2px 4px black;
+    margin-top: 1rem;
+    cursor: pointer;
 }
 
 #slider-container {
@@ -215,6 +187,7 @@ p{
     width: 100%;
     height: 110%;
     display: flex;
+    flex-direction: column;
     background-color: black;
     background-image: url('../ProjektiImages/background2.jpg');
     background-size: cover;
@@ -229,7 +202,33 @@ p{
     text-align: center;
     color: white;
     padding: 15px 30px;
-    font-size: 3.5rem;
+    margin-top: 15px;
+    font-size: 3.2rem;
     font-weight: bold;
     text-shadow: 4px 4px 6px black;
+}
+
+@media screen and (min-width: 1024px) {
+    #kryesor, #kryesor2, #kryesor3 {
+        flex-direction: row;
+    }
+
+    #teksti, #teksti2 {
+        width: 60%;
+        font-size: 2.2rem;
+    }
+
+    #foto, #foto2 {
+        width: 35%;
+        margin: 0 3%;
+    }
+
+    #slider-container {
+        width: 70%;
+        height: 60%;
+    }
+
+    #btn1, #btn2 {
+        font-size: 1rem;
+    }
 }
