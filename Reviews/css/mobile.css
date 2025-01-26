@@ -101,14 +101,14 @@ html, body {
 }
 
 #top li {
-    margin: 10px 0;
+    margin: 5px 0;
     text-align: center;
 }
 
 #top a {
     color: white;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.2em !important;
     padding: 10px;
 }
 
@@ -274,11 +274,6 @@ html, body {
     #review-form textarea,
     #review-form select {
         font-size: 0.8em;
-    }
-
-    #top a {
-        font-size: 1em;
-        padding: 8px;
     }
 
     h2, h3 {

@@ -48,16 +48,18 @@ if (isset($_POST['login'])) {
 
 <html>
     <head>
-        <link rel='stylesheet' href='LogIn.css' type='text/css' />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/desktop.css?=v1" media="screen and (min-width: 1025px)">
         <link rel="stylesheet" href="css/tablet.css" media="screen and (min-width: 768px) and (max-width: 1024px)">
-        <link rel="stylesheet" href="css/mobile.css" media="screen and (min-width: 1px) and (max-width: 767px)">
+        <link rel="stylesheet" href="css/mobile.css?v=1" media="screen and (min-width: 1px) and (max-width: 767px)">
     </head> 
     
     <body> 
         <div id="main">
             <div id="topbar">
                 <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
+                <button id="menu-toggle" style="color:white; margin-left:auto">&#9776;</button>
                 <nav>
                     <ul id="top">
                         <li class="bar"><a href="/ProjektiG5/Main/main.php"> Home </a></li>
@@ -100,7 +102,7 @@ if (isset($_POST['login'])) {
                                 if (isset($_GET['register_error'])) {
                                     echo "<p style='color: red;'>" . htmlspecialchars($_GET['register_error']) . "</p>";
                                 } elseif (isset($_GET['success'])) {
-                                    echo "<p style='color: lightgreen; margin-left: 25%;'>Sign Up Successful</p>";
+                                    echo "<p style='color: lightgreen;'>Sign Up Successful</p>";
                                 }
                             ?>
                         </ul> 
@@ -109,5 +111,21 @@ if (isset($_POST['login'])) {
                 </div>
             </div> 
         </div>
+            <script>
+                if (window.matchMedia("(max-width: 767px)").matches) {
+                    const menuToggle = document.getElementById('menu-toggle');
+                    const topNav = document.getElementById('top');
+
+                    menuToggle.addEventListener('click', () => {
+                        topNav.classList.toggle('active');
+                        menuToggle.classList.toggle('active');
+                    });
+                } else {
+                    const topNav = document.getElementById('top');
+                    const menuToggle = document.getElementById('menu-toggle');
+                    menuToggle.style.display = 'none';
+                    topNav.style.display = 'flex';
+                }
+            </script>
     </body> 
 </html>
