@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="Contact.css">
+    <link rel="stylesheet" href="/Css/Contact.css">
     <script src='Contact.js'></script>
    
     </style>
@@ -12,7 +12,7 @@
 <body>
 <div id="main">
         <div id="topbar">
-                <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
+                <img id="logo" src="../ProjektiG5/ProjektiImages/logo.png" alt="logo">
                 <button id="menu-toggle">&#9776;</button>
                 <nav>
                     <ul id="top">
