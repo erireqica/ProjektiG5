@@ -1,36 +1,57 @@
 <?php
-    session_start();
+session_start();
 
-    if (!isset($_SESSION['loggedIn']) || $_SESSION['role'] !== 'admin') {
-        header("Location: /ProjektiG5/Main/main.php");
-        exit;
+class UserManager {
+    private $conn;
+    private $table;
+
+    public function __construct($host, $username, $password, $dbname, $table) {
+        $this->table = $table;
+        try {
+            $dsn = "mysql:host=$host;dbname=$dbname";
+            $this->conn = new PDO($dsn, $username, $password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            exit;
+        }
     }
 
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "log";
-    $table = "users";
+    public function verifyAccess() {
+        if (!isset($_SESSION['loggedIn']) || $_SESSION['role'] !== 'admin') {
+            header("Location: /ProjektiG5/Main/main.php");
+            exit;
+        }
+    }
 
-    try {
-        $dsn = "mysql:host=$host;dbname=$dbname";
-        $conn = new PDO($dsn, $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        if (isset($_POST['user_id'])) {
-            $user_id = $_POST['user_id'];
-
-            $stmt = $conn->prepare("DELETE FROM $table WHERE id = :id");
-            $stmt->bindParam(':id', $user_id);
+    public function deleteUser($userId) {
+        try {
+            $stmt = $this->conn->prepare("DELETE FROM {$this->table} WHERE id = :id");
+            $stmt->bindParam(':id', $userId);
             $stmt->execute();
-
             header("Location: dashboard.php?message=User deleted successfully!");
             exit;
-        } else {
+        } catch (PDOException $e) {
             header("Location: dashboard.php?message=Failed to delete user. Please try again.");
             exit;
         }
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
     }
+}
+
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "log";
+$table = "users";
+
+$userManager = new UserManager($host, $username, $password, $dbname, $table);
+$userManager->verifyAccess();
+
+if (isset($_POST['user_id'])) {
+    $userId = $_POST['user_id'];
+    $userManager->deleteUser($userId);
+} else {
+    header("Location: dashboard.php?message=Failed to delete user. Please try again.");
+    exit;
+}
 ?>
