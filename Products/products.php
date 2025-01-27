@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="/ProjektiG5/products.css">
 </head>
 <body>
      <div id="main">
@@ -31,7 +31,7 @@
                     <p>Price: 10$</p>
                 </i>
                 </div>
-                <div id="d22"><img src="/ProjektiImages/Haircut2.jpg" alt=""></div>
+                <div id="d22"><img src="/ProjektiG5/ProjektiImages/Haircut2.jpg" alt=""></div>
         </div>
 
         <div id="d3">
@@ -45,7 +45,7 @@
                 </i>
            
         </div>
-            <div id="d32"><img src="/ProjektiImages/Haircut3.jpg" alt=""></div>
+            <div id="d32"><img src="/ProjektiG5/ProjektiImages/Haircut3.jpg" alt=""></div>
         </div>
 
         <div id="d4">
@@ -58,7 +58,7 @@
                 <p> Price: 12$</p>
             </i>
         </div>
-            <div id="d42"><img src="/ProjektiImages/Haircut4.jpg" alt=""></div>
+            <div id="d42"><img src="/ProjektiG5/ProjektiImages/Haircut4.jpg" alt=""></div>
         </div>
         
      </div>
