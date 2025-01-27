@@ -48,6 +48,7 @@ html, body {
     left: 0;
     z-index: 10;
     color: white;
+    flex-direction: column;
 }
 
 #top.active {
@@ -72,7 +73,7 @@ html, body {
 }
 
 #menu-toggle {
-      background: transparent;
+    background: transparent;
     border: none;
     cursor: pointer;
     display: flex;
@@ -104,33 +105,6 @@ html, body {
 
 #menu-toggle.active + #top {
     display: flex;
-}
-
-@media screen and (min-width: 768px) {
-    #menu-toggle {
-        display: none;
-    }
-
-    #top {
-        display: flex;
-        flex-direction: row;
-        position: static;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    #menu-toggle {
-        display: flex;
-    }
-
-    #top {
-        display: none;
-        flex-direction: column;
-    }
-
-    #menu-toggle.active + #top {
-        display: flex;
-    }
 }
 
 #slider-container {
@@ -176,7 +150,6 @@ html, body {
 
 #kryesor, #kryesor2, #kryesor3 {
     width: 100%;
-    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -185,41 +158,16 @@ html, body {
     background-color: black;
     background-size: cover;
     background-position: center;
+    justify-content: center;
 }
 
-#kryesor {
-    background-color: black;
-    background-image: url('../ProjektiImages/background.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#kryesor, #kryesor2 {
     border-top: solid black 4px;
-}
-
-#kryesor2 {
-    background-color: black;
-    background-image: url('../ProjektiImages/background2.jpg');
-    background-size: cover;
-    background-position: center;
     height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: solid black 4px;
 }
 
 #kryesor3 {
-    background-color: black;
-    background-image: url('../ProjektiImages/background2.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 55vh;
 }
 
 #teksti, #teksti2 {
@@ -284,14 +232,4 @@ a {
 
 #prev:hover, #next:hover {
     background-color: rgba(0, 0, 0, 0.7);
-}
-
-#slider-container {
-    position: relative;
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
 }

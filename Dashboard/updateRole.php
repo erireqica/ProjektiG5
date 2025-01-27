@@ -2,7 +2,7 @@
     session_start();
 
     if (!isset($_SESSION['loggedIn']) || $_SESSION['role'] !== 'admin') {
-        header("Location: login.php");
+        header("Location: /ProjektiG5/Main/main.php");
         exit;
     }
 

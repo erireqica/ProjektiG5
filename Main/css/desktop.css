@@ -61,34 +61,24 @@ a{
     color: #f39c12;
 }
 
-#kryesor {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    background-image: url("../ProjektiImages/background.jpg");
-    background-size: cover;
-    background-position: center;
+#kryesor, #kryesor2 {
     border-top: solid black 5px;
 }
 
-#kryesor2 {
+#kryesor, #kryesor2,#kryesor3 {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: black;
-    background-image: url("../ProjektiImages/background2.jpg");
     background-size: cover;
     background-position: center;
-    border-top: solid black 5px;
 }
 
 #teksti, #teksti2 {
     height: 100%;
     width: 60%;
-    font-size: 1.8rem !important;
+    font-size: 1.8rem;
     padding: 5%;
     display: flex;
     flex-direction: column;
@@ -103,11 +93,11 @@ a{
 
 #foto, #foto2 {
     height: 70%;
-    width: 40%;
+    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 5%;
+    margin: 0 3%;
 }
 
 #barber, #products {
@@ -125,7 +115,7 @@ a{
     background-color: rgb(166, 56, 19);
     border: 4px solid darkred;
     color: white;
-    font-size: 0.85rem;
+    font-size: 1rem;
     padding: 1.5% 3%;
     border-radius: 15%;
     text-shadow: 3px 2px 4px black;
@@ -134,8 +124,8 @@ a{
 }
 
 #slider-container {
-    width: 75%;
-    height: 75%;
+    width: 70%;
+    height: 60%;
     margin: auto;
     overflow: hidden;
     border-radius: 15px;
@@ -183,17 +173,6 @@ a{
     right: 10px;
 }
 
-#kryesor3 {
-    width: 100%;
-    height: 110%;
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    background-image: url('../ProjektiImages/background2.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
 #titulli {
     position: absolute;
     top: 18%;
@@ -208,27 +187,3 @@ a{
     text-shadow: 4px 4px 6px black;
 }
 
-@media screen and (min-width: 1024px) {
-    #kryesor, #kryesor2, #kryesor3 {
-        flex-direction: row;
-    }
-
-    #teksti, #teksti2 {
-        width: 60%;
-        font-size: 2.2rem;
-    }
-
-    #foto, #foto2 {
-        width: 35%;
-        margin: 0 3%;
-    }
-
-    #slider-container {
-        width: 70%;
-        height: 60%;
-    }
-
-    #btn1, #btn2 {
-        font-size: 1rem;
-    }
-}

@@ -18,8 +18,8 @@ html, body {
 }
 
 #logo {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 
 #topbar {
@@ -46,6 +46,8 @@ html, body {
     z-index: 10;
     color: white;
     justify-content: space-around;
+    flex-direction: row;
+    position: static;
 }
 
 #top li {
@@ -55,47 +57,13 @@ html, body {
 #top a {
     color: white;
     text-decoration: none;
-    font-size: 1.4em !important;
-    padding: 10px;
+    font-size: 1.4em;
+    padding: 15px;
     margin-left: -10px;
 }
 
 #top a:hover {
     color: #f39c12;
-}
-
-#menu-toggle {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-}
-
-#menu-toggle div {
-    width: 30px; 
-    height: 5px;
-    border-radius: 5px;
-}
-
-#menu-toggle.active div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-#menu-toggle.active div:nth-child(2) {
-    opacity: 0;
-}
-
-#menu-toggle.active div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-#menu-toggle.active + #top {
-    display: flex;
 }
 
 #slider-container {
@@ -148,42 +116,24 @@ html, body {
     right: 10px;
 }
 
-#kryesor {
-    width: 100%;
-    height: 80vh !important;
-    display: flex;
-    background-color: black;
-    background-image: url('../ProjektiImages/background.jpg');
-    background-size: cover;
-    background-position: center;
-    justify-content: center;
-    align-items: center;
-    border-top: solid black 4px;
-}
-
-#kryesor2 {
-    width: 100%;
-    height: 80vh !important;
-    display: flex;
-    background-color: black;
-    background-image: url('../ProjektiImages/background2.jpg');
-    background-size: cover;
-    background-position: center;
-    justify-content: center;
-    align-items: center;
+#kryesor, #kryesor2 {
+    height: 80vh;
     border-top: solid black 4px;
 }
 
 #kryesor3 {
+    height: 60vh;
+}
+
+#kryesor,#kryesor2,#kryesor3{
     width: 100%;
-    height: 60vh !important;
-    display: flex;
-    background-color: black;
-    background-image: url('../ProjektiImages/background2.jpg');
-    background-size: cover;
-    background-position: center;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+    display: flex;
 }
 
 #titulli {
@@ -196,13 +146,13 @@ html, body {
 }
 
 #teksti, #teksti2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: white;
     text-shadow: 2px 2px 4px black;
     padding: 10px;
     max-width: 600px;
     margin: 0 auto;
-    text-align: center !important;
+    text-align: center;
 }
 
 #foto, #foto2 {
@@ -222,60 +172,18 @@ html, body {
     background-color: rgb(166, 56, 19);
     border: 2px solid darkred;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     padding: 10px 20px;
     border-radius: 25px;
     text-shadow: 1px 1px 3px black;
     margin: 10px 0;
-    text-decoration: none !important;
+    text-decoration: none;
     display: inline-block;
     transition: transform 0.2s ease-in-out;
 }
 
 #btn1:hover, #btn2:hover {
     transform: scale(1.1);
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    #menu-toggle {
-        display: none;
-    }
-
-    #top {
-        display: flex;
-        flex-direction: row;
-        position: static;
-    }
-
-    #logo {
-        width: 60px;
-        height: 60px;
-    }
-
-    #top a {
-        font-size: 1.5em;
-        padding: 15px;
-    }
-
-    #kryesor, #kryesor2, #kryesor3 {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: auto;
-    }
-
-    #slider-container {
-        width: 80%;
-        margin-top: 5%;
-    }
-
-    #teksti, #teksti2 {
-        font-size: 1.5rem;
-    }
-
-    #btn1, #btn2 {
-        font-size: 16px;
-    }
 }
 
 #btn1 a, #btn2 a {

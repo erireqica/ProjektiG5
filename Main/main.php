@@ -33,14 +33,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/desktop.css?v=2" media="screen and (min-width: 1025px)">
-        <link rel="stylesheet" href="css/tablet.css?v=2" media="screen and (min-width: 768px) and (max-width: 1024px)">
+        <link rel="stylesheet" href="css/tablet.css?v=1" media="screen and (min-width: 768px) and (max-width: 1024px)">
         <link rel="stylesheet" href="css/mobile.css?v=2" media="screen and (min-width: 1px) and (max-width: 767px)">
     </head>
 
     <body>
 
         <div id="main">
-            
             <div id="topbar">
                 <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
                 <button style="color:white;" id="menu-toggle">&#9776;</button>
@@ -142,7 +141,7 @@
                 </div>
             </div>
 
-            <div id="kryesor2" style="background-image: url('../ProjektiImages/background.jpg');">
+            <div id="kryesor2" style="background-image: url('../ProjektiImages/background2.jpg');">
                 <div id="foto2">
                     <img id="products" src="../ProjektiImages/products.png" alt="products">
                 </div>

@@ -43,15 +43,6 @@ html, body {
     margin: 0;
 }
 
-#menu-toggle {
-    display: none;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
 #top a {
     color: white;
     text-decoration: none;
@@ -63,50 +54,6 @@ html, body {
     color: #f39c12;
 }
 
-@media screen and (max-width: 1024px) {
-    #top {
-        display: none;
-        flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    #top.active {
-        display: flex;
-    }
-
-    #menu-toggle {
-        display: block;
-    }
-
-    #top a {
-        display: block;
-        padding: 10px 0;
-    }
-
-    #logo {
-        width: 60px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    #top {
-        font-size: 1rem;
-    }
-
-    #logo {
-        width: 50px;
-    }
-
-    #menu-toggle {
-        font-size: 2rem;
-    }
-}
-
 #kryesor {
     width: 100%;
     height: 100vh;
@@ -114,7 +61,6 @@ html, body {
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
-    background-image: url("../ProjektiImages/background.jpg");
     background-size: cover;
     background-position: center;
 }
