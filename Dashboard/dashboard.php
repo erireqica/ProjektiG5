@@ -28,7 +28,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/desktop.css?v=2" media="screen and (min-width: 1025px)">
+        <link rel="stylesheet" href="css/desktop.css?v=1" media="screen and (min-width: 1025px)">
         <link rel="stylesheet" href="css/tablet.css?v=2" media="screen and (min-width: 768px) and (max-width: 1024px)">
         <link rel="stylesheet" href="css/mobile.css?v=1" media="screen and (min-width: 1px) and (max-width: 767px)">
     </head>
@@ -50,7 +50,7 @@
                 </nav>
             </div>
 
-            <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg'); background-size: cover; background-position: center; height: 100vh;">
+            <div id="kryesor" style="background-image: url('../ProjektiImages/background.jpg');">
 
                 <div id="content">
                     <h1>Admin Dashboard</h1>

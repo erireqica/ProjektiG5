@@ -35,7 +35,6 @@
         <link rel="stylesheet" href="css/desktop.css?v=2" media="screen and (min-width: 1025px)">
         <link rel="stylesheet" href="css/tablet.css?v=2" media="screen and (min-width: 768px) and (max-width: 1024px)">
         <link rel="stylesheet" href="css/mobile.css?v=2" media="screen and (min-width: 1px) and (max-width: 767px)">
-        <title>Document</title>
     </head>
 
     <body>
@@ -77,6 +76,7 @@
             </div>
 
             <script>
+                
                let currentIndex = 0;
                 const slides = document.querySelectorAll("#slider img");
                 const slider = document.getElementById("slider");
@@ -121,12 +121,12 @@
                     topNav.classList.toggle('active');
                     menuToggle.classList.toggle('active');
                 });
-            } else {
-                const topNav = document.getElementById('top');
-                const menuToggle = document.getElementById('menu-toggle');
-                menuToggle.style.display = 'none';
-                topNav.style.display = 'flex';
-            }
+                } else {
+                    const topNav = document.getElementById('top');
+                    const menuToggle = document.getElementById('menu-toggle');
+                    menuToggle.style.display = 'none';
+                    topNav.style.display = 'flex';
+                }
 
 
             </script>

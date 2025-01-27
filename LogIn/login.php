@@ -77,7 +77,7 @@ if (isset($_POST['login'])) {
                         <form action="login.php" method="POST"> 
                             <ul> 
                                 <label id="tekst1" style="color: white;"> <h1 class="h1">&nbsp; Log In</h1></label>
-                                <li><input id="emaili1" name="email" type="email" placeholder="Email" size="20" value="<?php echo htmlspecialchars($email ?? ''); ?>" /></li>
+                                <li><input id="emaili1" name="email" type="email" placeholder="Email" size="20"/></li>
                                 <li><input id="pass1" name="password" type="password" placeholder="Password" size="20" /></li>
                                 <li><input id="submit1" name="login" type="submit" value="SUBMIT" /></li>
                                 <?php if (!empty($error)): ?>

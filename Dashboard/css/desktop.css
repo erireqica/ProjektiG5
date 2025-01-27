@@ -66,6 +66,7 @@ html, body {
     background-image: url("../ProjektiImages/background.jpg");
     background-size: cover;
     background-position: center;
+    height: 100vh;
 }
 
 #content {
