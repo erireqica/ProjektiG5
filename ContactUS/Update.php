@@ -3,8 +3,8 @@
     $host='localhost';
     $username='root';
     $password="";
-    $dbname='contact';
-    $tabela="contact";
+    $dbname='log';
+    $tabela="tbl3";
 
     if(isset($_POST['Submit'])){
         $emri=$_POST['name'];

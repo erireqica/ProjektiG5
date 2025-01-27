@@ -2,8 +2,8 @@
       $host='localhost';
       $username='root';
       $password="";
-      $dbname='contact';
-      $tabela="contact";
+      $dbname='log';
+      $tabela="tbl3";
 
       if(isset($_GET['ID'])){
         $id=$_GET['id'];
