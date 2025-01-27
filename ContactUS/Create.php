@@ -17,7 +17,7 @@
                 <nav>
                     <ul id="top">
                         <li><a href="/ProjektiG5/Main/main.php">Home</a></li>
-                        <li><a href="/ProjektiG5/Products/products.html">Products</a></li>
+                        <li><a href="/ProjektiG5/Products/products.php">Products</a></li>
                         <li><a href="/ProjektiG5/Reviews/reviews.php">Reviews</a></li>
                         <li><a href="Create.php">Contact Us</a></li>
                         <li><a href="/ProjektiG5/Dashboard/dashboard.php">Dashboard</a></li>
@@ -36,7 +36,7 @@
             <input type="submit" name="submit" value="Submit">
         </form>
 
-            <a href="/Dashboard/dashboard.php">View Comments</a>
+            <a href="/ProjektiG5/Dashboard/dashboard.php">View Comments</a>
         </div>
 
         
