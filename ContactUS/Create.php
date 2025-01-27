@@ -168,7 +168,7 @@
     $host='localhost';
     $username='root';
     $password="";
-    $dbname='tbl1';
+    $dbname='log';
     $tabela="tbl3";
 
 
