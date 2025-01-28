@@ -1,48 +1,23 @@
 <?php
 session_start();
+require_once '../PHP/Database.php';
+require_once '../PHP/AdminDashboard.php';
 
-class AdminDashboard {
-    private $conn;
-
-    public function __construct($host, $username, $password, $dbname) {
-        try {
-            $dsn = "mysql:host=$host;dbname=$dbname";
-            $this->conn = new PDO($dsn, $username, $password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-            exit;
-        }
-    }
-
-    public function verifyAccess() {
-        if (!isset($_SESSION['loggedIn']) || $_SESSION['role'] !== 'admin') {
-            header("Location: /ProjektiG5/Main/main.php");
-            exit;
-        }
-    }
-
-    public function getUsers($table) {
-        try {
-            $stmt = $this->conn->query("SELECT id, name, email, role FROM $table");
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-            return [];
-        }
-    }
+if (!isset($_SESSION['loggedIn']) || $_SESSION['role'] !== 'admin') {
+    header("Location: /ProjektiG5/Main/main.php");
+    exit;
 }
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "log";
-$table = "users";
+$db = new Database();
+$adminDashboard = new AdminDashboard($db->getConnection());
 
-$dashboard = new AdminDashboard($host, $username, $password, $dbname);
-$dashboard->verifyAccess();
-$users = $dashboard->getUsers($table);
+try {
+    $users = $adminDashboard->getUsers();
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +33,7 @@ $users = $dashboard->getUsers($table);
 <body>
     <div id="main">
         <div id="topbar">
-            <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
+        <a href="/ProjektiG5/Main/main.php"> <img id="logo" src="../ProjektiImages/logo.png" alt="logo"></a>
             <button id="menu-toggle">&#9776;</button>
             <nav>
                 <ul id="top">

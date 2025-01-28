@@ -1,17 +1,10 @@
 <?php
     session_start();
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "log";
+    require_once '../PHP/Database.php';
+    require_once '../PHP/Review.php';
 
-    try {
-        $dsn = "mysql:host=$host;dbname=$dbname";
-        $conn = new PDO($dsn, $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die("Database connection failed: " . $e->getMessage());
-    }
+    $db = new Database();
+    $reviewObj = new Review($db->getConnection());
 
     if (isset($_POST['submit_review']) && isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
         $review = $_POST['review_text'];
@@ -36,26 +29,16 @@
         }
 
         if (!empty($review) && $rating >= 1 && $rating <= 5) {
-            $stmt = $conn->prepare("INSERT INTO reviews (user_id, username, review_text, rating, image_path) VALUES (:user_id, :username, :review, :rating, :image_path)");
-            $stmt->execute([
-                ':user_id' => $user_id,
-                ':username' => $username,
-                ':review' => $review,
-                ':rating' => $rating,
-                ':image_path' => $imagePath,
-            ]);
+            $reviewObj->addReview($user_id, $username, $review, $rating, $imagePath);
         }
     }
 
     if (isset($_POST['delete_review']) && isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
         $review_id = $_POST['review_id'];
-        $stmt = $conn->prepare("DELETE FROM reviews WHERE id = :id");
-        $stmt->execute([':id' => $review_id]);
+        $reviewObj->deleteReview($review_id);
     }
 
-    $stmt = $conn->prepare("SELECT * FROM reviews ORDER BY created_at DESC");
-    $stmt->execute();
-    $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $reviews = $reviewObj->getAllReviews();
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +53,7 @@
     <body>
         <div id="main">
             <div id="topbar">
-                <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
+            <a href="/ProjektiG5/Main/main.php"> <img id="logo" src="../ProjektiImages/logo.png" alt="logo"></a>
                 <button id="menu-toggle" style="color:white; margin-left:auto">&#9776;</button>
                 <nav>
                     <ul id="top">

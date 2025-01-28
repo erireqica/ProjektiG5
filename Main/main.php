@@ -1,30 +1,11 @@
 <?php
-    session_start();
+session_start();
+require_once '../PHP/Database.php';
+require_once '../PHP/TextContent.php';
 
-    $servername = "localhost";
-    $username = "root";
-    $password = ""; 
-    $dbname = "log";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $textContent = [];
-    $sql = "SELECT section, content FROM text_content";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $textContent[$row['section']] = $row['content'];
-        }
-    }
-
-    $conn->close();
-
-
+$db = new Database();
+$textContentClass = new TextContent($db->getConnection());
+$textContent = $textContentClass->getTextContent();
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +22,7 @@
 
         <div id="main">
             <div id="topbar">
-                <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
+            <a href="/ProjektiG5/Main/main.php"> <img id="logo" src="../ProjektiImages/logo.png" alt="logo"></a>
                 <button style="color:white;" id="menu-toggle">&#9776;</button>
                 <nav>
                     <ul id="top">

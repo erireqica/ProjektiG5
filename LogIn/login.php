@@ -1,36 +1,23 @@
 <?php
-$error = "";
-
-if (isset($_POST['login'])) {
     session_start();
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "log";
-    $table = "users";
+    require_once '../PHP/Database.php';
+    require_once '../PHP/User.php';
 
-    $email = $_POST['email'];
-    $pass = $_POST['password'];
+    $error = "";
+    $db = new Database();
+    $user = new User($db->getConnection());
 
-    if (empty($email) || empty($pass)) {
-        $error = "Please fill in all fields.";
-    } else {
-        try {
-            $dsn = "mysql:host=$host;dbname=$dbname";
-            $conn = new PDO($dsn, $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    if (isset($_POST['login'])) {
+        $email = $_POST['email'];
+        $pass = $_POST['password'];
 
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE email = :email");
-            $stmt->execute([":email" => $email]);
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (empty($email) || empty($pass)) {
+            $error = "Please fill in all fields.";
+        } else {
+            $role = $user->login($email, $pass);
 
-            if ($user && password_verify($pass, $user['password'])) {
-                $_SESSION['loggedIn'] = true;
-                $_SESSION['user'] = $user['name'];
-                $_SESSION['role'] = $user['role'];
-                $_SESSION['user_id'] = $user['id'];
-
-                if ($user['role'] === 'admin') {
+            if ($role) {
+                if ($role === 'admin') {
                     header("Location: /ProjektiG5/Dashboard/dashboard.php");
                 } else {
                     header("Location: /ProjektiG5/Main/main.php");
@@ -39,11 +26,8 @@ if (isset($_POST['login'])) {
             } else {
                 $error = "Incorrect email or password.";
             }
-        } catch (PDOException $e) {
-            $error = "Error: " . $e->getMessage();
         }
     }
-}
 ?>
 
 <html>
@@ -53,12 +37,13 @@ if (isset($_POST['login'])) {
         <link rel="stylesheet" href="css/desktop.css?=v2" media="screen and (min-width: 1025px)">
         <link rel="stylesheet" href="css/tablet.css?=v1" media="screen and (min-width: 768px) and (max-width: 1024px)">
         <link rel="stylesheet" href="css/mobile.css?=v1" media="screen and (min-width: 1px) and (max-width: 767px)">
+        <script src="login.js"></script>
     </head> 
     
     <body> 
         <div id="main">
             <div id="topbar">
-                <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
+                <a href="/ProjektiG5/Main/main.php"> <img id="logo" src="../ProjektiImages/logo.png" alt="logo"></a>
                 <button id="menu-toggle" style="color:white; margin-left:auto">&#9776;</button>
                 <nav>
                     <ul id="top">
