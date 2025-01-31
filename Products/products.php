@@ -133,7 +133,7 @@ b {
                 <ul id="top">
                     <li><a href="/ProjektiG5/Main/main.php"> Home </a></li>
                     <li><a href="/ProjektiG5/Products/products.php"> Products </a></li>
-                    <li><a href="/ProjektiG5/ContactUS/ContactUs.php"> Contact Us</a></li>
+                    <li><a href="/ProjektiG5/ContactUS/Create.php"> Contact Us</a></li>
                     <li><a href="/ProjektiG5/LogIn/LogIn.php"> Log In </a></li>
                    
                 </ul>
