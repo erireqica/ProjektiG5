@@ -10,7 +10,7 @@
     </style>
 </head>
 <body>
-<div id="main">
+<div id="main" style="background-image: url('../ProjektiImages/background.jpg');">
         <div id="topbar">
                 <img id="logo" src="../ProjektiG5/ProjektiImages/logo.png" alt="logo">
                 <button id="menu-toggle">&#9776;</button>
