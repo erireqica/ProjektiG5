@@ -89,6 +89,36 @@ try {
                 </table>
             </div>
         </div>
+        <div id="content2">
+            <h2>Manage Comments</h2>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Comment</th>
+                        <th>Actions</th>
+                    </tr>
+                    <?php foreach ($comments as $comment): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($comment['emri']); ?></td>
+                            <td><?php echo htmlspecialchars($comment['email']); ?></td>
+                            <td><?php echo htmlspecialchars($comment['komenti']); ?></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <form method="POST" action="updateComment.php">
+                                        <input type="hidden" name="comment_id" value="<?php echo $comment['id']; ?>">
+                                        <button type="submit" class="update-button">Update</button>
+                                    </form>
+                                    <form method="POST" action="deleteComment.php">
+                                        <input type="hidden" name="comment_id" value="<?php echo $comment['id']; ?>">
+                                        <button type="submit" class="delete-button">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+                </div>
     </div>
     <script>
         if (window.matchMedia("(max-width: 767px)").matches) {
