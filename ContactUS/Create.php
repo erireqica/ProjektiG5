@@ -191,6 +191,7 @@ input[type="submit"]:hover {
                     <ul id="top">
                         <li><a href="/ProjektiG5/Main/main.php">Home</a></li>
                         <li><a href="/ProjektiG5/Products/products.php">Products</a></li>
+                        <li><a href="/ProjektiG5/Reviews/reviews.php"> Reviews </a></li>
                         
                         <li><a href="Create.php">Contact Us</a></li>
                         <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
