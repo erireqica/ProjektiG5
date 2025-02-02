@@ -207,7 +207,7 @@ input[type="submit"]:hover {
             <input type="submit" name="submit" value="Submit">
         </form>
 
-            <a href="/ProjektiG5/Dashboard/dashboard.php">View Comments</a>
+            
         </div>
 
         
