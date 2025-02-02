@@ -25,7 +25,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/desktop.css?v=2" media="screen and (min-width: 1025px)">
+    <link rel="stylesheet" href="css/desktop.css?v=1" media="screen and (min-width: 1025px)">
     <link rel="stylesheet" href="css/tablet.css?v=2" media="screen and (min-width: 768px) and (max-width: 1024px)">
     <link rel="stylesheet" href="css/mobile.css?v=2" media="screen and (min-width: 1px) and (max-width: 767px)">
 </head>
@@ -89,8 +89,9 @@ try {
                 </table>
             </div>
         </div>
-        <div id="content2">
-            <h2>Manage Comments</h2>
+        <div id="kryesor2" style="background-image: url('../ProjektiImages/background2.jpg');">
+            <div id="content2">
+                <h2>Manage Comments</h2>
                 <table>
                     <tr>
                         <th>Name</th>
@@ -118,7 +119,8 @@ try {
                         </tr>
                     <?php endforeach; ?>
                 </table>
-                </div>
+            </div>
+        </div>
     </div>
     <script>
         if (window.matchMedia("(max-width: 767px)").matches) {
