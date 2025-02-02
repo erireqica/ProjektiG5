@@ -60,7 +60,7 @@ $conn->close();
     <div id="main">
         <div id="d1">
         <div id="topbar">
-        <img id="logo" src="/ProjektiG5/ProjektiImages/logo.png" alt="logo">
+        <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
     <button id="menu-toggle">☰</button> <!-- Menu Button -->
     
     <ul id="top">
