@@ -185,7 +185,7 @@ input[type="submit"]:hover {
 <body>
 <div id="main">
         <div id="topbar">
-                <img id="logo" src="../ProjektiG5/ProjektiImages/logo.png" alt="logo">
+                <img id="logo" src="../ProjektiImages/logo.png" alt="logo">
                 <button id="menu-toggle">&#9776;</button>
                 <nav>
                     <ul id="top">
