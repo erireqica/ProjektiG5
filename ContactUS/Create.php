@@ -179,7 +179,7 @@ input[type="submit"]:hover {
 <div id="main" style="background-image: url('../ProjektiImages/background.jpg');">
         <div id="topbar">
                 <img id="logo" src="../ProjektiG5/ProjektiImages/logo.png" alt="logo">
-                <button id="menu-toggle">&#9776;</button>
+                
                 <nav>
                     <ul id="top">
                         <li><a href="/ProvaG5/Main/main.php">Home</a></li>
