@@ -27,9 +27,9 @@ $textContent = $textContentClass->getTextContent();
                 <nav>
                     <ul id="top">
                         <li><a href="main.php"> Home </a></li>
-                        <li><a href="/ProjektiG5/Products/products.html"> Products </a></li>
+                        <li><a href="/ProjektiG5/Products/products.php"> Products </a></li>
                         <li><a href="/ProjektiG5/Reviews/reviews.php"> Reviews </a></li>
-                        <li><a href="/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
+                        <li><a href="/ProjektiG5/ContactUS/create.php"> Contact Us </a></li>
                         <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
                         <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                             <li><a href="/ProjektiG5/Dashboard/dashboard.php"> Dashboard </a></li>

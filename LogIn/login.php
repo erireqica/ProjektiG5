@@ -48,9 +48,9 @@
                 <nav>
                     <ul id="top">
                         <li class="bar"><a href="/ProjektiG5/Main/main.php"> Home </a></li>
-                        <li class="bar"><a href="/ProjektiG5/Products/Products.html"> Products </a></li>
+                        <li class="bar"><a href="/ProjektiG5/Products/Products.php"> Products </a></li>
                         <li class="bar"><a href="/ProjektiG5/Reviews/reviews.php"> Reviews </a></li>
-                        <li class="bar"><a href="/ProjektiG5/ContactUS/ContactUs.html"> Contact Us </a></li>
+                        <li class="bar"><a href="/ProjektiG5/ContactUS/Create.php"> Contact Us </a></li>
                         <li class="bar"><a href="LogIn.php"> Log In </a></li>
                     </ul>
                 </nav>
