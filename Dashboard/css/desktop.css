@@ -69,6 +69,18 @@ html, body {
     overflow-y: auto;
     margin-top: -7rem;
 }
+#content2 {
+    width: 80%;
+    max-width: 1200px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: -7rem;
+}
+
 
 h1, h2 {
     color: white;

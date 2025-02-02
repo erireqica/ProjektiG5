@@ -1,3 +1,32 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+$dbname = "log";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$textContent = [];
+$sql = "SELECT section, content FROM text_content";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $textContent[$row['section']] = $row['content'];
+    }
+}
+
+$productQuery = "SELECT * FROM products ORDER BY id DESC";
+$productResult = $conn->query($productQuery);
+
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +34,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/ProjektiG5/products.css">
+    
 </head>
 <body>
      <div id="main">
@@ -14,53 +44,83 @@
                 <ul id="top">
                     <li><a href="/ProjektiG5/Main/main.php"> Home </a></li>
                     <li><a href="/ProjektiG5/Products/products.php"> Products </a></li>
-                    <li><a href="/ProjektiG5/ContactUS/ContactUs.php"> Contact Us</a></li>
-                    <li><a href="/ProjektiG5/LogIn/LogIn.php"> Log In </a></li>
+                    <li><a href="/ProjektiG5/ContactUS/Create.php"> Contact Us</a></li>
+                    <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
+                        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                            <li><a href="/ProjektiG5/Dashboard/dashboard.php"> Dashboard </a></li>
+                        <?php endif; ?>
+                        <li><a href="/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
+                        <?php else: ?>
+                            <li><a href="/ProjektiG5/LogIn/LogIn.php">Log In</a></li>
+                        <?php endif; ?>
                    
                 </ul>
-                
+                <?div>
         </div>
+                         <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                <button><a href="/ProjektiG5/Products/addProduct.php">Add Product</a></button>
+            <?php endif; ?>
+        <?php else: ?>
+            <p>You must be logged in to add products.</p>
+        <?php endif; ?>
 
-        <div id="d2">
-                <div id="d21">
-                    <i>
-                   <b><p> IMMORTAL NYC hair wax for men:</p></b>
-                    <p> Textured and tousled looks.</p>
-                    <p> Thick, with a matte finish.</p>
-                    <p> Strong, but flexible throughout the day.</p>
-                    <p>Price: 10$</p>
-                </i>
+                h2>Available Products</h2>
+
+         <?php if ($productResult->num_rows > 0): ?>
+            <?php while ($product = $productResult->fetch_assoc()): ?>
+                <div class="product-card">
+                    <div class="product-details">
+                        <b><?= htmlspecialchars($product['name']) ?></b>
+                        <p><?= htmlspecialchars($product['info']) ?></p>
+                        <p style="color:black">Price: $<?= number_format($product['price'], 2) ?></p>
+                        <a href="/ProjektiG5/LogIn/LogIn.php" class="buy-now">Buy Now</a>
+                    </div>
+                    <div class="product-image-container">
+                        <img class="product-image" src="<?= htmlspecialchars($product['image_path']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+                    </div>
                 </div>
-                <div id="d22"><img src="/ProjektiG5/ProjektiImages/Haircut2.jpg" alt=""></div>
-        </div>
-
-        <div id="d3">
-            <div id="d31">
-                
-                <i>
-                    <p> <b>IMMORTAL NYC pomade:</b></p>
-                    <p> Soft, but flexible throughout the day.</p>
-                    <p>Sleek, classic styles like pompadours or side parts.</p>
-                    <p> Price: 7$</p>
-                </i>
-           
-        </div>
-            <div id="d32"><img src="/ProjektiG5/ProjektiImages/Haircut3.jpg" alt=""></div>
-        </div>
-
-        <div id="d4">
-            <div id="d41">
-            <i>
-                <b>IMMORTAL NYC hair gel:</b>
-                <p> Spiky styles or high-hold looks.</p>
-                <p> Thick, sticky, dries hard.</p>
-                <p>Very strong but can make hair stiff.</p>
-                <p> Price: 12$</p>
-            </i>
-        </div>
-            <div id="d42"><img src="/ProjektiG5/ProjektiImages/Haircut4.jpg" alt=""></div>
-        </div>
+            <?php endwhile; ?>
+        <?php else: ?>
+            <p>No products available.</p>
+        <?php endif; ?>
         
      </div>
+             <script>
+        if (window.matchMedia("(max-width: 767px)").matches) {
+            const menuToggle = document.getElementById('menu-toggle');
+            const topNav = document.getElementById('top');
+
+            menuToggle.addEventListener('click', () => {
+                topNav.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        } else {
+            const topNav = document.getElementById('top');
+            const menuToggle = document.getElementById('menu-toggle');
+            menuToggle.style.display = 'none';
+            topNav.style.display = 'flex';
+        }
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const topNav = document.getElementById("top");
+
+        menuToggle.addEventListener("click", function () {
+            topNav.classList.toggle("active");
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const productContainer = document.getElementById("product-container");
+        const productCards = document.querySelectorAll(".product-card");
+
+        if (productCards.length > 2) {
+            productContainer.style.overflowY = "scroll";
+        }
+    });
+</script>
 </body>
 </html>
