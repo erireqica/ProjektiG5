@@ -32,11 +32,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="/Css/Contact.css">
-    <script src='Contact.js'></script>
-   
+    <link rel="stylesheet" href="/ContactUs/CSS/ContactUs.css">
+    <script src='/ContactUs/Contact.js'></script>
     <style>
         
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
 body {
     background: url('/ProjektiG5/ProjektiImages/background.jpg') no-repeat center center/cover;
     color: #fff;
@@ -173,27 +180,28 @@ input[type="submit"]:hover {
 }
     </style>
     
-    </style>
+
 </head>
 <body>
-<div id="main" style="background-image: url('../ProjektiImages/background.jpg');">
+<div id="main">
         <div id="topbar">
                 <img id="logo" src="../ProjektiG5/ProjektiImages/logo.png" alt="logo">
-                
+                <button id="menu-toggle">&#9776;</button>
                 <nav>
                     <ul id="top">
-                        <li><a href="/ProvaG5/Main/main.php">Home</a></li>
-                        <li><a href="/ProvaG5/Products/products.php">Products</a></li>
+                        <li><a href="/ProjektiG5/Main/main.php">Home</a></li>
+                        <li><a href="/ProjektiG5/Products/products.php">Products</a></li>
                         
                         <li><a href="Create.php">Contact Us</a></li>
                         <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-                            <li><a href="/ProvaG5/Dashboard/dashboard.php"> Dashboard </a></li>
+                            <li><a href="/ProjektiG5/Dashboard/dashboard.php"> Dashboard </a></li>
                         <?php endif; ?>
                         <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
-                            <li><a href="/ProvaG5/LogIn/logout.php">Sign Out</a></li>
+                            <li><a href="/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
                         <?php else: ?>
-                            <li><a href="/ProvaG5/LogIn/LogIn.php">Log In</a></li>
+                            <li><a href="/ProjektiG5/LogIn/LogIn.php">Log In</a></li>
                         <?php endif; ?>
+                    </ul>
                 </nav>
             </div>
         
@@ -206,8 +214,10 @@ input[type="submit"]:hover {
             <input type="text"   name="message" placeholder="Komenti" required>
             <input type="submit" name="submit" value="Submit">
         </form>
+        
 
-            
+      
+
         </div>
 
         
