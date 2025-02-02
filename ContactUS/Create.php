@@ -1,3 +1,31 @@
+<?php
+    session_start();
+
+    $servername = "localhost";
+    $username = "root";
+    $password = ""; 
+    $dbname = "log";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $textContent = [];
+    $sql = "SELECT section, content FROM text_content";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $textContent[$row['section']] = $row['content'];
+        }
+    }
+
+    $conn->close();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,13 +182,18 @@ input[type="submit"]:hover {
                 <button id="menu-toggle">&#9776;</button>
                 <nav>
                     <ul id="top">
-                        <li><a href="/ProjektiG5/Main/main.php">Home</a></li>
-                        <li><a href="/ProjektiG5/Products/products.php">Products</a></li>
-                        <li><a href="/ProjektiG5/Reviews/reviews.php">Reviews</a></li>
+                        <li><a href="/ProvaG5/Main/main.php">Home</a></li>
+                        <li><a href="/ProvaG5/Products/products.php">Products</a></li>
+                        
                         <li><a href="Create.php">Contact Us</a></li>
-                        <li><a href="/ProjektiG5/Dashboard/dashboard.php">Dashboard</a></li>
-                        <li><a href="/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
-                    </ul>
+                        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                            <li><a href="/ProvaG5/Dashboard/dashboard.php"> Dashboard </a></li>
+                        <?php endif; ?>
+                        <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
+                            <li><a href="/ProvaG5/LogIn/logout.php">Sign Out</a></li>
+                        <?php else: ?>
+                            <li><a href="/ProvaG5/LogIn/LogIn.php">Log In</a></li>
+                        <?php endif; ?>
                 </nav>
             </div>
         
