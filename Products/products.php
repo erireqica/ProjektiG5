@@ -144,8 +144,17 @@ b {
                         <?php endif; ?>
                    
                 </ul>
-                
+                <?div>
         </div>
+                         <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                <button><a href="/ProjektiG5/Products/addProduct.php">Add Product</a></button>
+            <?php endif; ?>
+        <?php else: ?>
+            <p>You must be logged in to add products.</p>
+        <?php endif; ?>
+
+                h2>Available Products</h2>
 
         <div id="d2">
                 <div id="d21">
