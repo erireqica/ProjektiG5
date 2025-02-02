@@ -27,66 +27,91 @@ $productResult = $conn->query($productQuery);
 
 $conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/ProjektiG5/products.css">
-    
+    <title>Products</title>
+
+  
+    <link rel="stylesheet" href="css/desktop.css?v=3" media="screen and (min-width: 1025px)">
+    <link rel="stylesheet" href="css/tablet.css?v=3" media="screen and (min-width: 768px) and (max-width: 1024px)">
+    <link rel="stylesheet" href="css/mobile.css?v=3" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="/products.css?v=3" media="screen and (max-width: 767px)">
 </head>
 <body>
-     <div id="main">
+    <div id="main">
         <div id="d1">
-            <div id="topbar">
-                <img id="logo" src="/ProjektiImages/logo.png" alt="logo">
-                <ul id="top">
-                    <li><a href="/ProjektiG5/Main/main.php"> Home </a></li>
-                    <li><a href="/ProjektiG5/Products/products.php"> Products </a></li>
-                    <li><a href="/ProjektiG5/ContactUS/Create.php"> Contact Us</a></li>
-                    <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
-                        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-                            <li><a href="/ProjektiG5/Dashboard/dashboard.php"> Dashboard </a></li>
-                        <?php endif; ?>
-                        <li><a href="/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
-                        <?php else: ?>
-                            <li><a href="/ProjektiG5/LogIn/LogIn.php">Log In</a></li>
-                        <?php endif; ?>
-                   
-                </ul>
-                <?div>
+        <div id="topbar">
+        <img id="logo" src="/ProjektiImages/logo.png" alt="logo">
+    <button id="menu-toggle">☰</button> <!-- Menu Button -->
+    
+    <ul id="top">
+        <li><a href="/ProjektiG5/Main/main.php">Home</a></li>
+        <li><a href="/ProjektiG5/Products/products.php">Products</a></li>
+        <li><a href="/ProjektiG5/ContactUS/Create.php">Contact Us</a></li>
+        
+        <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
+            <?php if ($_SESSION['role'] === 'admin'): ?>
+                <li><a href="/ProjektiG5/Dashboard/dashboard.php">Dashboard</a></li>
+            <?php endif; ?>
+            <li><a href="/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
+        <?php else: ?>
+            <li><a href="/ProjektiG5/LogIn/LogIn.php">Log In</a></li>
+        <?php endif; ?>
+    </ul>
+</div>
+
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.getElementById('top').classList.toggle('active');
+    });
+</script>
+
         </div>
-                         <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
+
+        <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                 <button><a href="/ProjektiG5/Products/addProduct.php">Add Product</a></button>
             <?php endif; ?>
         <?php else: ?>
-            <p>You must be logged in to add products.</p>
+            <p id="a1" style="color: red; margin-right:10%;">You must be logged in to add products.</p>
         <?php endif; ?>
 
-                h2>Available Products</h2>
+        <div id="main1">
+    <h2>Available Products:</h2>
 
-         <?php if ($productResult->num_rows > 0): ?>
+    <div id="product-container">
+        <?php if ($productResult->num_rows > 0): ?>
             <?php while ($product = $productResult->fetch_assoc()): ?>
                 <div class="product-card">
                     <div class="product-details">
                         <b><?= htmlspecialchars($product['name']) ?></b>
                         <p><?= htmlspecialchars($product['info']) ?></p>
-                        <p style="color:black">Price: $<?= number_format($product['price'], 2) ?></p>
-                        <a href="/ProjektiG5/LogIn/LogIn.php" class="buy-now">Buy Now</a>
+                        <p style="color:white">Price: $<?= number_format($product['price'], 2) ?></p>
                     </div>
                     <div class="product-image-container">
                         <img class="product-image" src="<?= htmlspecialchars($product['image_path']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
                     </div>
+
+                    <!-- Show delete button only if admin -->
+                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                        <form action="/ProjektiG5/Products/deleteProduct.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
+                            <input type="hidden" name="product_id" value="<?= $product['ID']; ?>">
+                            <button type="submit" class="delete-button">Delete</button>
+                        </form>
+                    <?php endif; ?>
                 </div>
             <?php endwhile; ?>
         <?php else: ?>
             <p>No products available.</p>
         <?php endif; ?>
-        
-     </div>
-             <script>
+    </div>
+</div>
+
+    <script>
         if (window.matchMedia("(max-width: 767px)").matches) {
             const menuToggle = document.getElementById('menu-toggle');
             const topNav = document.getElementById('top');
@@ -122,5 +147,7 @@ $conn->close();
         }
     });
 </script>
+
+
 </body>
 </html>
