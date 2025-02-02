@@ -16,8 +16,19 @@ try {
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
-?>
 
+
+$conn = $db->getConnection();
+$comments = [];
+
+try {
+    $stmt = $conn->prepare("SELECT id, emri, email, komenti FROM tbl3 ORDER BY created_at DESC");
+    $stmt->execute();
+    $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "Error fetching comments: " . $e->getMessage();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +44,7 @@ try {
 <body>
     <div id="main">
         <div id="topbar">
-        <a href="/ProjektiG5/Main/main.php"> <img id="logo" src="../ProjektiImages/logo.png" alt="logo"></a>
+            <a href="/ProjektiG5/Main/main.php"><img id="logo" src="../ProjektiImages/logo.png" alt="logo"></a>
             <button id="menu-toggle">&#9776;</button>
             <nav>
                 <ul id="top">
@@ -89,6 +100,7 @@ try {
                 </table>
             </div>
         </div>
+
         <div id="kryesor2" style="background-image: url('../ProjektiImages/background2.jpg');">
             <div id="content2">
                 <h2>Manage Comments</h2>
@@ -122,6 +134,7 @@ try {
             </div>
         </div>
     </div>
+
     <script>
         if (window.matchMedia("(max-width: 767px)").matches) {
             const menuToggle = document.getElementById('menu-toggle');
