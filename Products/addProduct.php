@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product</title>
     <style>
-        /* Full-screen background */
+       
         body {
             background: url('/ProjektiG5/ProjektiImages/scissors.jpg') no-repeat center center/cover;
             background-color: black;
@@ -18,7 +18,7 @@
             height: 100vh;
         }
 
-        /* Main container */
+      
         .container {
             width: 100%;
             max-width: 450px;
@@ -80,7 +80,6 @@
             background: darkorange;
         }
 
-        /* Back Button */
         .back-btn {
             display: inline-block;
             margin-top: 15px;
@@ -98,7 +97,6 @@
             color: black;
         }
 
-        /* Responsive Design */
         @media (max-width: 500px) {
             .container {
                 width: 90%;

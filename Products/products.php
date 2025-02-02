@@ -39,14 +39,14 @@ $conn->close();
     <link rel="stylesheet" href="css/desktop.css?v=3" media="screen and (min-width: 1025px)">
     <link rel="stylesheet" href="css/tablet.css?v=3" media="screen and (min-width: 768px) and (max-width: 1024px)">
     <link rel="stylesheet" href="css/mobile.css?v=3" media="screen and (max-width: 767px)">
-    <link rel="stylesheet" href="/products.css?v=3" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="css/products.css?v=3" media="screen and (max-width: 767px)">
 </head>
 <body>
     <div id="main">
         <div id="d1">
         <div id="topbar">
         <img id="logo" src="/ProjektiImages/logo.png" alt="logo">
-    <button id="menu-toggle">☰</button> <!-- Menu Button -->
+    <button id="menu-toggle">☰</button>
     
     <ul id="top">
         <li><a href="/ProjektiG5/Main/main.php">Home</a></li>
@@ -96,7 +96,7 @@ $conn->close();
                         <img class="product-image" src="<?= htmlspecialchars($product['image_path']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
                     </div>
 
-                    <!-- Show delete button only if admin -->
+                    
                     <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                         <form action="/ProjektiG5/Products/deleteProduct.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
                             <input type="hidden" name="product_id" value="<?= $product['ID']; ?>">
