@@ -1,3 +1,32 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+$dbname = "log";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$textContent = [];
+$sql = "SELECT section, content FROM text_content";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $textContent[$row['section']] = $row['content'];
+    }
+}
+
+$productQuery = "SELECT * FROM products ORDER BY id DESC";
+$productResult = $conn->query($productQuery);
+
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,125 +34,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/ProjektiG5/products.css">
-     <style>
-
-
-body {
-    background: url('/ProjektiG5/ProjektiImages/background.jpg') no-repeat center center/cover;
-    color: white;
-    text-align: center;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); 
-    z-index: -1;
-}
-
-
-#topbar {
-    background: rgba(0, 0, 0, 0.9);
-    width: 100%;
-    padding: 15px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-}
-
-#logo {
-    height: 50px;
-    margin-left: 20px;
-}
-
-#top {
-    list-style: none;
-    display: flex;
-    margin-right: 20px;
-}
-
-#top li {
-    margin: 0 15px;
-}
-
-#top li a {
-    text-decoration: none;
-    color: orange;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-#top li a:hover {
-    color: white;
-}
-
-
-#main {
-    margin-top: 100px;
-    width: 80%;
-}
-
-
-#d2, #d3, #d4 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(0, 0, 0, 0.85);
-    border: 2px solid orange; 
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(255, 102, 0, 0.7);
-    margin: 20px auto;
-    padding: 15px;
-    max-width: 800px; 
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-
-}
-
-
-b {
-    font-size: 27px;
-    color: orange;
-}
-
-
-.buy-now {
-    display: inline-block;
-    background: orange;
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 10px 20px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: 0.3s ease-in-out;
-}
-
-.buy-now:hover {
-    background: white;
-    color: orange;
-    border: 2px solid orange;
-    transform: scale(1.05);
-}
-
-
-    </style>
+    
 </head>
 <body>
      <div id="main">
