@@ -175,5 +175,41 @@ b {
         <?php endif; ?>
         
      </div>
+             <script>
+        if (window.matchMedia("(max-width: 767px)").matches) {
+            const menuToggle = document.getElementById('menu-toggle');
+            const topNav = document.getElementById('top');
+
+            menuToggle.addEventListener('click', () => {
+                topNav.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        } else {
+            const topNav = document.getElementById('top');
+            const menuToggle = document.getElementById('menu-toggle');
+            menuToggle.style.display = 'none';
+            topNav.style.display = 'flex';
+        }
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const topNav = document.getElementById("top");
+
+        menuToggle.addEventListener("click", function () {
+            topNav.classList.toggle("active");
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const productContainer = document.getElementById("product-container");
+        const productCards = document.querySelectorAll(".product-card");
+
+        if (productCards.length > 2) {
+            productContainer.style.overflowY = "scroll";
+        }
+    });
+</script>
 </body>
 </html>
