@@ -1,77 +1,3 @@
-<?php
-session_start();
-
-
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: products.php");
-    exit();
-}
-
-
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'log';
-$tabela = "products";
-
-try {
-    $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
-    $conn = new PDO($dsn, $username, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]);
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-    $productName = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-    $productInfo = filter_input(INPUT_POST, 'info', FILTER_SANITIZE_STRING);
-    $productPrice = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
-    $image = $_FILES['image'];
-
-    if ($productName && $productInfo && $productPrice && $image) {
-        if ($image['error'] === UPLOAD_ERR_OK) {
-            $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-            $fileType = mime_content_type($image['tmp_name']);
-
-            if (in_array($fileType, $allowedTypes)) {
-                $uploadDir = 'uploads/';
-                if (!is_dir($uploadDir)) {
-                    mkdir($uploadDir, 0777, true);
-                }
-                $uploadFile = $uploadDir . time() . "_" . basename($image['name']);
-
-                if (move_uploaded_file($image['tmp_name'], $uploadFile)) {
-                    try {
-                        $sql = "INSERT INTO $tabela (name, info, price, image_path) VALUES (:name, :info, :price, :image_path)";
-                        $stmt = $conn->prepare($sql);
-                        $stmt->execute([
-                            ':name' => $productName,
-                            ':info' => $productInfo,
-                            ':price' => $productPrice,
-                            ':image_path' => $uploadFile
-                        ]);
-
-                        $success = "Product added successfully!";
-                    } catch (PDOException $e) {
-                        $error = "Database Error: " . htmlspecialchars($e->getMessage());
-                    }
-                } else {
-                    $error = "Error saving the uploaded image.";
-                }
-            } else {
-                $error = "Only JPEG, PNG, and GIF files are allowed.";
-            }
-        } else {
-            $error = "Error uploading image.";
-        }
-    } else {
-        $error = "Please fill in all fields correctly.";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,35 +5,133 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product</title>
     <style>
-        body { background-color: black; color: orange; font-family: Arial, sans-serif; }
-        form { max-width: 400px; margin: 50px auto; padding: 20px; background-color: #333; border-radius: 10px; }
-        label { display: block; margin-bottom: 10px; }
-        input, textarea { width: 100%; padding: 10px; margin-bottom: 10px; }
-        button { background-color: orange; color: black; padding: 10px 20px; border: none; cursor: pointer; }
-        button:hover { background-color: darkorange; }
+        /* Full-screen background */
+        body {
+            background: url('/ProjektiG5/ProjektiImages/scissors.jpg') no-repeat center center/cover;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Main container */
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 165, 0, 0.6);
+            text-align: center;
+        }
+
+        h1 {
+            color: orange;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            text-align: left;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            color: orange;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #bbb;
+        }
+
+        button {
+            background: orange;
+            color: black;
+            font-size: 16px;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: darkorange;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: black;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: orange;
+            color: black;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Add Product</h1>
-    <?php if (!empty($success)) echo "<p style='color: green;'>$success</p>"; ?>
-    <?php if (!empty($error)) echo "<p style='color: red;'>$error</p>"; ?>
 
-    <form method="POST" action="" enctype="multipart/form-data">
-        <label for="name">Product Name:</label>
-        <input type="text" name="name" id="name" required>
+    <div class="container">
+        <h1>Add Product</h1>
 
-        <label for="info">Product Info:</label>
-        <textarea name="info" id="info" required></textarea>
+        <?php if (!empty($success)) echo "<p style='color: green; font-weight: bold;'>$success</p>"; ?>
+        <?php if (!empty($error)) echo "<p style='color: red; font-weight: bold;'>$error</p>"; ?>
 
-        <label for="price">Price:</label>
-        <input type="number" step="0.01" name="price" id="price" required>
+        <form method="POST" action="" enctype="multipart/form-data">
+            <label for="name">Product Name:</label>
+            <input type="text" name="name" id="name" placeholder="Enter product name" required>
 
-        <label for="image">Product Image:</label>
-        <input type="file" name="image" id="image" accept="image/*" required>
+            <label for="info">Product Info:</label>
+            <textarea name="info" id="info" rows="4" placeholder="Enter product description" required></textarea>
 
-        <button type="submit" name="submit">Add Product</button>
-    </form>
+            <label for="price">Price:</label>
+            <input type="number" step="0.01" name="price" id="price" placeholder="Enter price ($)" required>
 
-    <p><a href="products.php" style="color: orange;"> Back to Products</a></p>
+            <label for="image">Product Image:</label>
+            <input type="file" name="image" id="image" accept="image/*" required>
+
+            <button type="submit" name="submit">Add Product</button>
+            <a href="/ProjektiG5/Products/products.php" class="back-btn">Back to Products</a>
+        </form>
+    </div>
+
 </body>
 </html>
