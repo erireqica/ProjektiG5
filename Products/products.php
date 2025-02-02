@@ -134,7 +134,14 @@ b {
                     <li><a href="/ProjektiG5/Main/main.php"> Home </a></li>
                     <li><a href="/ProjektiG5/Products/products.php"> Products </a></li>
                     <li><a href="/ProjektiG5/ContactUS/Create.php"> Contact Us</a></li>
-                    <li><a href="/ProjektiG5/LogIn/LogIn.php"> Log In </a></li>
+                    <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']): ?>
+                        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                            <li><a href="/ProjektiG5/Dashboard/dashboard.php"> Dashboard </a></li>
+                        <?php endif; ?>
+                        <li><a href="/ProjektiG5/LogIn/logout.php">Sign Out</a></li>
+                        <?php else: ?>
+                            <li><a href="/ProjektiG5/LogIn/LogIn.php">Log In</a></li>
+                        <?php endif; ?>
                    
                 </ul>
                 
