@@ -156,48 +156,23 @@ b {
 
                 h2>Available Products</h2>
 
-        <div id="d2">
-                <div id="d21">
-                    <i>
-                   <b><p> IMMORTAL NYC hair wax for men:</p></b>
-                    <p> Textured and tousled looks.</p>
-                    <p> Thick, with a matte finish.</p>
-                    <p> Strong, but flexible throughout the day.</p>
-                    <p style="color:black">Price: 10$</p>
-                    <a href="/ProjektiG5/LogIn/LogIn.php" class="buy-now">Buy Now</a>
-                </i>
+         <?php if ($productResult->num_rows > 0): ?>
+            <?php while ($product = $productResult->fetch_assoc()): ?>
+                <div class="product-card">
+                    <div class="product-details">
+                        <b><?= htmlspecialchars($product['name']) ?></b>
+                        <p><?= htmlspecialchars($product['info']) ?></p>
+                        <p style="color:black">Price: $<?= number_format($product['price'], 2) ?></p>
+                        <a href="/ProjektiG5/LogIn/LogIn.php" class="buy-now">Buy Now</a>
+                    </div>
+                    <div class="product-image-container">
+                        <img class="product-image" src="<?= htmlspecialchars($product['image_path']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+                    </div>
                 </div>
-                <div id="d22"><img src="/ProjektiG5/ProjektiImages/Haircut2.jpg" alt=""></div>
-        </div>
-
-        <div id="d3">
-            <div id="d31">
-                
-                <i>
-                    <p> <b>IMMORTAL NYC pomade:</b></p>
-                    <p> Soft, but flexible throughout the day.</p>
-                    <p>Sleek, classic styles like pompadours or side parts.</p>
-                    <p style="color:black"> Price: 7$</p>
-                    <a href="/ProjektiG5/LogIn/LogIn.php" class="buy-now">Buy Now</a>
-                </i>
-           
-        </div>
-            <div id="d32"><img src="/ProjektiG5/ProjektiImages/Haircut3.jpg" alt=""></div>
-        </div>
-
-        <div id="d4">
-            <div id="d41">
-            <i>
-                <b>IMMORTAL NYC hair gel:</b>
-                <p> Spiky styles or high-hold looks.</p>
-                <p> Thick, sticky, dries hard.</p>
-                <p>Very strong but can make hair stiff.</p>
-                <p style="color:black"> Price: 12$</p>
-                <a href="/ProjektiG5/LogIn/LogIn.php" class="buy-now">Buy Now</a>
-            </i>
-        </div>
-            <div id="d42"><img src="/ProjektiG5/ProjektiImages/Haircut4.jpg" alt=""></div>
-        </div>
+            <?php endwhile; ?>
+        <?php else: ?>
+            <p>No products available.</p>
+        <?php endif; ?>
         
      </div>
 </body>
