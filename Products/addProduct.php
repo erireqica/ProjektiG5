@@ -1,3 +1,64 @@
+<?php
+session_start();
+
+// Ensure only admins can access this page
+if (!isset($_SESSION['loggedIn']) || $_SESSION['role'] !== 'admin') {
+    die("Access denied. Only admins can add products.");
+}
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "log";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$message = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $name = $conn->real_escape_string($_POST['name']);
+    $info = $conn->real_escape_string($_POST['info']);
+    $price = floatval($_POST['price']);
+
+    // Ensure the images directory exists
+    $targetDirectory = __DIR__ . "/images/";
+    if (!file_exists($targetDirectory)) {
+        mkdir($targetDirectory, 0777, true);
+    }
+
+    $imagePath = "";
+    if (!empty($_FILES["image"]["name"])) {
+        $imageName = basename($_FILES["image"]["name"]);
+        $imagePath = "images/" . $imageName;
+        $targetFile = $targetDirectory . $imageName;
+
+        // Check if the file is an actual image
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if ($check === false) {
+            $message = "File is not an image.";
+        } else {
+            // Move the uploaded file
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+                $sql = "INSERT INTO products (name, info, price, image_path) VALUES ('$name', '$info', '$price', '$imagePath')";
+                if ($conn->query($sql) === TRUE) {
+                    $message = "✅ Product added successfully!";
+                } else {
+                    $message = "❌ Error: " . $conn->error;
+                }
+            } else {
+                $message = "❌ Error: Failed to upload image. Check folder permissions.";
+            }
+        }
+    }
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,33 +66,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product</title>
     <style>
-       
         body {
-            background: url('/ProjektiG5/ProjektiImages/scissors.jpg') no-repeat center center/cover;
-            background-color: black;
+            background: url('/ProjektiG5/ProjektiImages/background.jpg') no-repeat center center/cover;
             color: white;
+            text-align: center;
             font-family: Arial, sans-serif;
-            margin: 0;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
+            flex-direction: column;
         }
 
-      
         .container {
-            width: 100%;
-            max-width: 450px;
             background: rgba(0, 0, 0, 0.8);
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(255, 165, 0, 0.6);
-            text-align: center;
+            border-radius: 10px;
+            width: 50%;
+            max-width: 500px;
+            box-shadow: 0 0 15px rgba(255, 102, 0, 0.7);
         }
 
-        h1 {
+        h2 {
             color: orange;
-            font-size: 26px;
             margin-bottom: 20px;
         }
 
@@ -41,38 +98,35 @@
         }
 
         label {
-            text-align: left;
-            margin-bottom: 5px;
-            font-size: 14px;
             font-weight: bold;
             color: orange;
+            margin-top: 10px;
         }
 
         input, textarea {
-            width: 100%;
             padding: 10px;
-            margin-bottom: 15px;
+            margin-top: 5px;
             border: none;
             border-radius: 5px;
-            background: #222;
-            color: white;
             font-size: 16px;
-            outline: none;
+            width: 100%;
         }
 
-        input::placeholder, textarea::placeholder {
-            color: #bbb;
+        input[type="file"] {
+            background: white;
+            padding: 5px;
         }
 
         button {
             background: orange;
             color: black;
-            font-size: 16px;
+            font-size: 18px;
             padding: 12px;
+            margin-top: 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease-in-out;
             font-weight: bold;
         }
 
@@ -80,56 +134,42 @@
             background: darkorange;
         }
 
-        .back-btn {
-            display: inline-block;
+        .message {
             margin-top: 15px;
-            text-decoration: none;
-            color: black;
-            background: white;
-            padding: 10px 15px;
-            border-radius: 5px;
             font-weight: bold;
-            transition: background 0.3s ease, color 0.3s ease;
         }
 
-        .back-btn:hover {
-            background: orange;
-            color: black;
-        }
-
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
             .container {
-                width: 90%;
-                padding: 20px;
+                width: 80%;
             }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>Add Product</h1>
+        <h2>Add a New Product</h2>
 
-        <?php if (!empty($success)) echo "<p style='color: green; font-weight: bold;'>$success</p>"; ?>
-        <?php if (!empty($error)) echo "<p style='color: red; font-weight: bold;'>$error</p>"; ?>
+        <?php if (!empty($message)): ?>
+            <p class="message"><?= $message; ?></p>
+        <?php endif; ?>
 
-        <form method="POST" action="" enctype="multipart/form-data">
-            <label for="name">Product Name:</label>
-            <input type="text" name="name" id="name" placeholder="Enter product name" required>
+        <form action="addProduct.php" method="POST" enctype="multipart/form-data">
+            <label>Name:</label>
+            <input type="text" name="name" required>
 
-            <label for="info">Product Info:</label>
-            <textarea name="info" id="info" rows="4" placeholder="Enter product description" required></textarea>
+            <label>Info:</label>
+            <textarea name="info" required></textarea>
 
-            <label for="price">Price:</label>
-            <input type="number" step="0.01" name="price" id="price" placeholder="Enter price ($)" required>
+            <label>Price:</label>
+            <input type="number" step="0.01" name="price" required>
 
-            <label for="image">Product Image:</label>
-            <input type="file" name="image" id="image" accept="image/*" required>
+            <label>Image:</label>
+            <input type="file" name="image" accept="image/*" required>
 
-            <button type="submit" name="submit">Add Product</button>
-            <a href="/ProjektiG5/Products/products.php" class="back-btn">Back to Products</a>
+            <button type="submit">Add Product</button>
+            <button><a href="/ProjektiG5/Products/products.php">Go Back</a></button>
         </form>
     </div>
-
 </body>
 </html>
