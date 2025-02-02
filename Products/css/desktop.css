@@ -1,0 +1,217 @@
+
+        body {
+            background: url('/ProjektiG5/ProjektiImages/background.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); 
+            z-index: -1;
+        }
+
+        #topbar {
+            background: rgba(0, 0, 0, 0.9);
+            width: 100%;
+            padding: 15px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 10px;
+            z-index: 10;
+        }
+
+        #logo {
+            height: 50px;
+            margin-left: 20px;
+        }
+
+        #top {
+            list-style: none;
+            display: flex;
+            margin-right: 20px;
+        }
+
+        #top li {
+            margin: 0 30px;
+        }
+
+        #top li a {
+            text-decoration: none;
+            color: orange;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        #top li a:hover {
+            color: white;
+        }
+
+        #main {
+            margin-top: 100px;
+            width: 80%;
+        }
+
+        .product-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.85);
+            border: 2px solid orange; 
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.7);
+            margin: 20px auto;
+            padding: 15px;
+            max-width: 800px; 
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        b {
+            font-size: 30px;
+            color: orange;
+            padding-left: 0px;
+
+        }
+        #a1{
+            font-size: 25px;
+            color: red;
+            padding-left: 10%;
+        }
+        p{
+            font-size: 20px;
+            color: white;
+            padding-left: 10%;
+        }
+
+        .buy-now {
+            display: inline-block;
+            background: orange;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin-top: 10px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+        }
+
+        .buy-now:hover {
+            background: white;
+            color: orange;
+            border: 2px solid orange;
+            transform: scale(1.05);
+        }
+        .delete-button {
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+}
+
+        
+
+        .product-image {
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+    
+body {
+    background: url('/ProjektiG5/ProjektiImages/background.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.product-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    padding: 20px;
+    margin: 20px auto;
+    border: 2px solid orange;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.7);
+}
+
+.product-image {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+#main1 {
+    max-height: 80vh; 
+    overflow-y: auto;
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+}
+
+
+
+#main1::-webkit-scrollbar-thumb {
+    background-color: orange;
+    border-radius: 5px;
+}
+#product-container {
+    overflow-y: auto;  
+    scrollbar-width: none; /
+}
+
+#product-container::-webkit-scrollbar {
+    display: none; 
+}
+
+#ad1 {
+    background: orange;
+    color: black;
+    font-size: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#ad1:hover {
+    background: darkorange;
+}
+#ad2{
+    font-weight: bold;
+    text-decoration: none;
+}
